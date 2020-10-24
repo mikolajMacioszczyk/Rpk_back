@@ -65,5 +65,13 @@ namespace Rpk_back.WebAPI.Controllers
 
             return Ok(sensor);
         }
+
+        [HttpGet("sensorTypes")]
+        public async Task<IActionResult> GetSensorTypes()
+        {
+            var data = Enum.GetValues(typeof(SensorLocalizationEnum));
+            return Ok(data);
+        }
+        
     }
 }

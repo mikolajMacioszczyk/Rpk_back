@@ -22,8 +22,8 @@ namespace Rpk_back.WebAPI.Controllers
             _sensorService = sensorService;
         }
 
-        [HttpGet("{guid}/{dateStart}/{dateEnd}")]
-        public async Task<IActionResult> GetSensorById([FromRoute] Guid guid, DateTime dateStart, DateTime dateEnd)
+        [HttpGet("{guid}")]
+        public async Task<IActionResult> GetSensorById([FromRoute] Guid guid, [FromQuery] DateTime dateStart, DateTime dateEnd)
         {
             if (dateStart > dateEnd)
                 return BadRequest();
@@ -33,8 +33,8 @@ namespace Rpk_back.WebAPI.Controllers
            return Ok(sensor);
         }
 
-        [HttpGet("groupById/{groupGuid}/{dateStart}/{dateEnd}")]
-        public async Task<IActionResult> GetSensorsByGroupId([FromRoute] Guid groupGuid, DateTime dateStart, DateTime dateEnd)
+        [HttpGet("groupById/{groupGuid}")]
+        public async Task<IActionResult> GetSensorsByGroupId([FromRoute] Guid groupGuid, [FromQuery] DateTime dateStart, DateTime dateEnd)
         {
             if (dateStart > dateEnd)
                 return BadRequest();
@@ -44,8 +44,8 @@ namespace Rpk_back.WebAPI.Controllers
             return Ok(sensorGroup);
         }
 
-        [HttpGet("groupByLocalization/{localization}/{dateStart}/{dateEnd}")]
-        public async Task<IActionResult> GetSensorsByLocalization([FromRoute] string localization, DateTime dateStart, DateTime dateEnd)
+        [HttpGet("groupByLocalization/{localization}")]
+        public async Task<IActionResult> GetSensorsByLocalization([FromRoute] string localization, [FromQuery] DateTime dateStart, DateTime dateEnd)
         {
             if (string.IsNullOrEmpty(localization) || dateStart > dateEnd)
                 return BadRequest();
@@ -55,8 +55,8 @@ namespace Rpk_back.WebAPI.Controllers
             return Ok(sensor);
         }
 
-        [HttpGet("groupByType/{type}/{dateStart}/{dateEnd}")]
-        public async Task<IActionResult> GetSensorsByType([FromRoute] string type, DateTime dateStart, DateTime dateEnd)
+        [HttpGet("groupByType/{type}")]
+        public async Task<IActionResult> GetSensorsByType([FromRoute] string type, [FromQuery] DateTime dateStart, DateTime dateEnd)
         {
             if (string.IsNullOrEmpty(type) || dateStart > dateEnd)
                 return BadRequest();

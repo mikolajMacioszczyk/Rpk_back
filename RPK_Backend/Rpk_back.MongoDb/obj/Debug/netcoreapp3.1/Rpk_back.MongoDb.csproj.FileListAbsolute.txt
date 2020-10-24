@@ -7,3 +7,11 @@
 /home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.csproj.CoreCompileInputs.cache
 /home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.dll
 /home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.pdb
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.MongoDb\bin\Debug\netcoreapp3.1\Rpk_back.MongoDb.deps.json
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.MongoDb\bin\Debug\netcoreapp3.1\Rpk_back.MongoDb.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.MongoDb\bin\Debug\netcoreapp3.1\Rpk_back.MongoDb.pdb
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.MongoDb\obj\Debug\netcoreapp3.1\Rpk_back.MongoDb.csprojAssemblyReference.cache
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.MongoDb\obj\Debug\netcoreapp3.1\Rpk_back.MongoDb.AssemblyInfoInputs.cache
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.MongoDb\obj\Debug\netcoreapp3.1\Rpk_back.MongoDb.AssemblyInfo.cs
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.MongoDb\obj\Debug\netcoreapp3.1\Rpk_back.MongoDb.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.MongoDb\obj\Debug\netcoreapp3.1\Rpk_back.MongoDb.pdb

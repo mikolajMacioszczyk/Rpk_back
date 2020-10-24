@@ -47,3 +47,11 @@
 /home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.dll
 /home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll
 /home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\Rpk_back.WebAPI.csprojAssemblyReference.cache
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\staticwebassets\Rpk_back.WebAPI.StaticWebAssets.Manifest.cache
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\staticwebassets\Rpk_back.WebAPI.StaticWebAssets.xml
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\Rpk_back.WebAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\Rpk_back.WebAPI.AssemblyInfoInputs.cache
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\Rpk_back.WebAPI.AssemblyInfo.cs
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\Rpk_back.WebAPI.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\Rpk_back.WebAPI.pdb

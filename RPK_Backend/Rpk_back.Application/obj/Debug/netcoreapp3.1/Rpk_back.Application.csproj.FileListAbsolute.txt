@@ -13,3 +13,16 @@
 /home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.dll
 /home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.pdb
 /home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.genruntimeconfig.cache
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\bin\Debug\netcoreapp3.1\Rpk_back.Application.deps.json
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\bin\Debug\netcoreapp3.1\Rpk_back.Application.runtimeconfig.json
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\bin\Debug\netcoreapp3.1\Rpk_back.Application.runtimeconfig.dev.json
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\bin\Debug\netcoreapp3.1\Rpk_back.Application.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\bin\Debug\netcoreapp3.1\Rpk_back.Application.pdb
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\bin\Debug\netcoreapp3.1\Rpk_back.Domain.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\bin\Debug\netcoreapp3.1\Rpk_back.Domain.pdb
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\obj\Debug\netcoreapp3.1\Rpk_back.Application.csprojAssemblyReference.cache
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\obj\Debug\netcoreapp3.1\Rpk_back.Application.AssemblyInfoInputs.cache
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\obj\Debug\netcoreapp3.1\Rpk_back.Application.AssemblyInfo.cs
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\obj\Debug\netcoreapp3.1\Rpk_back.Application.csproj.CopyComplete
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\obj\Debug\netcoreapp3.1\Rpk_back.Application.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Application\obj\Debug\netcoreapp3.1\Rpk_back.Application.pdb

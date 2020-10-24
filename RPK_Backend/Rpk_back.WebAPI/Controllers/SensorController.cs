@@ -11,7 +11,7 @@ using Rpk_back.Domain.Enums;
 
 namespace Rpk_back.WebAPI.Controllers
 {
-    [Route("api/controller")]
+    [Route("api/[controller]")]
     [ApiController]
     public class SensorController : Controller
     {
@@ -28,7 +28,7 @@ namespace Rpk_back.WebAPI.Controllers
             if (dateStart > dateEnd)
                 return BadRequest();
 
-            var sensor = await _sensorService.GetByIdAndTime(guid, dateStart, dateEnd);
+            var sensor = await _sensorService.GetByIdAndTime(guid);
 
            return Ok(sensor);
         }

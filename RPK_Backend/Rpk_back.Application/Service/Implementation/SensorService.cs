@@ -20,9 +20,9 @@ namespace Rpk_back.Application.Service.Implementation
             _mapper = mapper;
         }
 
-        public async Task<SensorReadDto> GetByIdAndTime(Guid sensorId, DateTime startTime, DateTime endTime)
+        public async Task<SensorReadDto> GetByIdAndTime(Guid sensorId)
         {
-            return _mapper.Map<SensorReadDto>(await _repository.GetBySensorId(sensorId, startTime, endTime));
+            return _mapper.Map<SensorReadDto>(await _repository.GetBySensorId(sensorId));
         }
 
         public async Task<IEnumerable<SensorReadDto>> GetGroupByIdAndTime(Guid groupId, DateTime startTime, DateTime endTime)

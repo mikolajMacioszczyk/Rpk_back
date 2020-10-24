@@ -641,6 +641,7 @@
       "System.Runtime.CompilerServices.Unsafe/4.6.0": {},
       "Rpk_back.Application/1.0.0": {
         "dependencies": {
+          "Microsoft.EntityFrameworkCore": "3.1.9",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "3.1.4",
           "Rpk_back.Domain": "1.0.0"
         },

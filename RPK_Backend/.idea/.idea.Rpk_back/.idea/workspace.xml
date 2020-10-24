@@ -22,50 +22,47 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5ca404f3-a481-43a4-bf14-f54946097963" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Rpk_back.Application/Repository/ISensorRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rpk_back.Application/Repository/SensorRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rpk_back.Domain/Dtos/SensorCreateDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rpk_back.Domain/Dtos/SensorReadDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rpk_back.Domain/Profiles/SensorProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/Db/Context.cs" afterDir="false" />
+    <list default="true" id="5ca404f3-a481-43a4-bf14-f54946097963" name="Default Changelist" comment="Add DbContext">
+      <change afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/Extensions/ServiceExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/Repository/ISensorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/Repository/ISensorRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/Repository/SensorRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/Repository/SensorRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.Application/Rpk_back.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/Rpk_back.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.Domain/Rpk_back.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Domain/Rpk_back.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.Domain/obj/Debug/netcoreapp3.1/Rpk_back.Domain.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Domain/obj/Debug/netcoreapp3.1/Rpk_back.Domain.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Application/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.Domain/obj/Debug/netcoreapp3.1/Rpk_back.Domain.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Domain/obj/Debug/netcoreapp3.1/Rpk_back.Domain.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.Domain/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Domain/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/Controllers/WeatherForecastController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/Rpk_back.WebAPI.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/Rpk_back.WebAPI.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.Domain/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Domain/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.MongoDb/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.PostgresSQL/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/Db/Context.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.Application/Db/Context.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/Migrations/20201024155925_InitialMigration.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/Migrations/20201024155925_InitialMigration.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/Migrations/ContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/Migrations/ContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/WeatherForecast.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.Application.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.Application.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.Application.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.Application.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.WebAPI.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.WebAPI.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.WebAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/bin/Debug/netcoreapp3.1/Rpk_back.WebAPI.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.csprojAssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.pdb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.g.props" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/Rpk_back.WebAPI/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,10 +77,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Repository/ISensorRepository.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Rpk_back.Application/Db/Context.cs" />
         <option value="$PROJECT_DIR$/Rpk_back.Application/Repository/SensorRepository/ISensorRepository.cs" />
         <option value="$PROJECT_DIR$/Rpk_back.Application/Repository/SensorRepository/SensorRepository.cs" />
         <option value="$PROJECT_DIR$/Rpk_back.Domain/Dtos/SensorReadDto.cs" />
@@ -92,9 +91,11 @@
         <option value="$PROJECT_DIR$/Rpk_back.Domain/Profiles/SensorProfile.cs" />
         <option value="$PROJECT_DIR$/Rpk_back.WebAPI/appsettings.json" />
         <option value="$PROJECT_DIR$/Rpk_back.WebAPI/Db/Context.cs" />
-        <option value="$PROJECT_DIR$/Rpk_back.WebAPI/Startup.cs" />
-        <option value="$PROJECT_DIR$/Rpk_back.Application/Repository/SensorRepository.cs" />
+        <option value="$PROJECT_DIR$/Rpk_back.WebAPI/Extensions/ServiceExtensions.cs" />
+        <option value="$PROJECT_DIR$/Rpk_back.Application/Db/Context.cs" />
         <option value="$PROJECT_DIR$/Rpk_back.Application/Repository/ISensorRepository.cs" />
+        <option value="$PROJECT_DIR$/Rpk_back.Application/Repository/SensorRepository.cs" />
+        <option value="$PROJECT_DIR$/Rpk_back.WebAPI/Startup.cs" />
       </list>
     </option>
   </component>
@@ -164,8 +165,16 @@
       <workItem from="1603538512006" duration="711000" />
       <workItem from="1603539780141" duration="930000" />
       <workItem from="1603551073971" duration="3814000" />
-      <workItem from="1603554908593" duration="611000" />
+      <workItem from="1603554908593" duration="1755000" />
     </task>
+    <task id="LOCAL-00001" summary="Add DbContext">
+      <created>1603555644272</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603555644272</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,6 +196,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Add DbContext" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add DbContext" />
   </component>
   <component name="WindowStateProjectService">
     <state x="418" y="186" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603555050342">
@@ -297,10 +308,14 @@
       <screen x="0" y="27" width="1920" height="1003" />
     </state>
     <state x="187" y="112" width="1536" height="839" key="MergeDialog/0.27.1920.1003/1920.0.1920.1080@0.27.1920.1003" timestamp="1603553093796" />
-    <state x="555" y="264" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603555232441">
+    <state x="700" y="197" width="510" height="669" key="RiderGenerateDialog" timestamp="1603555747854">
       <screen x="0" y="27" width="1920" height="1003" />
     </state>
-    <state x="555" y="264" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1003/1920.0.1920.1080@0.27.1920.1003" timestamp="1603555232441" />
+    <state x="700" y="197" width="510" height="669" key="RiderGenerateDialog/0.27.1920.1003/1920.0.1920.1080@0.27.1920.1003" timestamp="1603555747854" />
+    <state x="555" y="264" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1603555648052">
+      <screen x="0" y="27" width="1920" height="1003" />
+    </state>
+    <state x="555" y="264" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1003/1920.0.1920.1080@0.27.1920.1003" timestamp="1603555648052" />
     <state x="741" y="450" width="438" height="177" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603555276931">
       <screen x="0" y="27" width="1920" height="1003" />
     </state>

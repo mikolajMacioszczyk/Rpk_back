@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Rpk_back.Domain.Models;
 
-namespace Rpk_back.WebAPI.Db
+namespace Rpk_back.Application.Db
 {
     public class Context : DbContext
     {

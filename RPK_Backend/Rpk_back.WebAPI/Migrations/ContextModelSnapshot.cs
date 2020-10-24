@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
-using Rpk_back.WebAPI.Db;
+using Rpk_back.Application.Db;
 
 namespace Rpk_back.WebAPI.Migrations
 {

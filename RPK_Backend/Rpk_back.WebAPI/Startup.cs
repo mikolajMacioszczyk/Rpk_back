@@ -39,7 +39,7 @@ namespace Rpk_back.WebAPI
             });
             services.AddControllers();
 
-            services.RegisterRepositories();
+            services.RegisterRepositoriesAndServices();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

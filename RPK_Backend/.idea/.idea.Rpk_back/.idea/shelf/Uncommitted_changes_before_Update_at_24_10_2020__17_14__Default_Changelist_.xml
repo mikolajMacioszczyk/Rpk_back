@@ -1,0 +1,64 @@
+<changelist name="Uncommitted_changes_before_Update_at_24_10_2020,_17_14_[Default_Changelist]" date="1603552461159" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2020,_17_14_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 24.10.2020, 17:14 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.csprojAssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.csprojAssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2020,_17_14_[Default_Changelist]/Rpk_back.WebAPI.csprojAssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.assets.cache" />
+    <option name="AFTER_PATH" value="Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2020,_17_14_[Default_Changelist]/Rpk_back.Application.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.csprojAssemblyReference.cache" />
+    <option name="AFTER_PATH" value="Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.csprojAssemblyReference.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2020,_17_14_[Default_Changelist]/Rpk_back.Application.csprojAssemblyReference.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.cache" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.cache" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.assets.cache" />
+    <option name="AFTER_PATH" value="Rpk_back.WebAPI/obj/Debug/netcoreapp3.1/Rpk_back.WebAPI.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2020,_17_14_[Default_Changelist]/Rpk_back.WebAPI.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.Domain/obj/Debug/netcoreapp3.1/Rpk_back.Domain.assets.cache" />
+    <option name="AFTER_PATH" value="Rpk_back.Domain/obj/Debug/netcoreapp3.1/Rpk_back.Domain.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2020,_17_14_[Default_Changelist]/Rpk_back.Domain.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.cache" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.cache" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.cache" />
+    <option name="AFTER_PATH" />
+    <option name="SHELVED_PATH" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.assets.cache" />
+    <option name="AFTER_PATH" value="Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2020,_17_14_[Default_Changelist]/Rpk_back.MongoDb.assets.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.assets.cache" />
+    <option name="AFTER_PATH" value="Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.assets.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.Rpk_back/.idea/shelf/Uncommitted_changes_before_Update_at_24_10_2020,_17_14_[Default_Changelist]/Rpk_back.PostgresSQL.assets.cache" />
+  </binary>
+</changelist>

@@ -1,0 +1,15 @@
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.deps.json
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.runtimeconfig.json
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.runtimeconfig.dev.json
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.dll
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Application.pdb
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Domain.dll
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/bin/Debug/netcoreapp3.1/Rpk_back.Domain.pdb
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.csprojAssemblyReference.cache
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.AssemblyInfoInputs.cache
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.AssemblyInfo.cs
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.csproj.CoreCompileInputs.cache
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.csproj.CopyComplete
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.dll
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.pdb
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/Debug/netcoreapp3.1/Rpk_back.Application.genruntimeconfig.cache

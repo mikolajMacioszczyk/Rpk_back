@@ -1,0 +1,9 @@
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/bin/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.deps.json
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/bin/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.dll
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/bin/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.pdb
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.csprojAssemblyReference.cache
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.AssemblyInfoInputs.cache
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.AssemblyInfo.cs
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.csproj.CoreCompileInputs.cache
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.dll
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/obj/Debug/netcoreapp3.1/Rpk_back.PostgresSQL.pdb

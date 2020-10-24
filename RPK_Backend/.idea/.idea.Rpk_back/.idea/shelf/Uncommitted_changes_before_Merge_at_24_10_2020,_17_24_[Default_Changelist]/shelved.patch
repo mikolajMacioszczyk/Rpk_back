@@ -1,0 +1,2179 @@
+Index: Rpk_back.WebAPI/Startup.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using System;\nusing System.Collections.Generic;\nusing System.Linq;\nusing System.Threading.Tasks;\nusing Microsoft.AspNetCore.Builder;\nusing Microsoft.AspNetCore.Hosting;\nusing Microsoft.AspNetCore.HttpsPolicy;\nusing Microsoft.AspNetCore.Mvc;\nusing Microsoft.Extensions.Configuration;\nusing Microsoft.Extensions.DependencyInjection;\nusing Microsoft.Extensions.Hosting;\nusing Microsoft.Extensions.Logging;\n\nnamespace Rpk_back.WebAPI\n{\n    public class Startup\n    {\n        public Startup(IConfiguration configuration)\n        {\n            Configuration = configuration;\n        }\n\n        public IConfiguration Configuration { get; }\n\n        // This method gets called by the runtime. Use this method to add services to the container.\n        public void ConfigureServices(IServiceCollection services)\n        {\n            services.AddControllers();\n        }\n\n        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.\n        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)\n        {\n            if (env.IsDevelopment())\n            {\n                app.UseDeveloperExceptionPage();\n            }\n\n            app.UseHttpsRedirection();\n\n            app.UseRouting();\n\n            app.UseAuthorization();\n\n            app.UseEndpoints(endpoints =>\n            {\n                endpoints.MapControllers();\n            });\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.WebAPI/Startup.cs	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.WebAPI/Startup.cs	(date 1603552460838)
+@@ -25,12 +25,17 @@
+         // This method gets called by the runtime. Use this method to add services to the container.
+         public void ConfigureServices(IServiceCollection services)
+         {
++            services.AddCors(c =>
++            {
++                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin() );
++            });
+             services.AddControllers();
+         }
+ 
+         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+         {
++            app.UseCors(options => options.AllowAnyOrigin());
+             if (env.IsDevelopment())
+             {
+                 app.UseDeveloperExceptionPage();
+Index: Rpk_back.Domain/Dtos/SensorReadDto.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Domain/Dtos/SensorReadDto.cs	(date 1603552808805)
++++ Rpk_back.Domain/Dtos/SensorReadDto.cs	(date 1603552808805)
+@@ -0,0 +1,15 @@
++using System;
++using Rpk_back.Domain.Enums;
++
++namespace Rpk_back.Domain.Dtos
++{
++    public class SensorReadDto
++    {
++        public Guid SensorId { get; set; }
++        public DateTime MeasurementTime { get; set; }
++        public float SensorValue { get; set; }
++        public string Localization { get; set; }
++        public string SensorType { get; set; }
++        public Guid SensorGroupGuid { get; set; }
++    }
++}
+\ No newline at end of file
+Index: Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.dgspec.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"format\": 1,\n  \"restore\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Application\\\\Rpk_back.Application.csproj\": {}\n  },\n  \"projects\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Application\\\\Rpk_back.Application.csproj\": {\n      \"version\": \"1.0.0\",\n      \"restore\": {\n        \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Application\\\\Rpk_back.Application.csproj\",\n        \"projectName\": \"Rpk_back.Application\",\n        \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Application\\\\Rpk_back.Application.csproj\",\n        \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n        \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Application\\\\obj\\\\\",\n        \"projectStyle\": \"PackageReference\",\n        \"fallbackFolders\": [\n          \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n        ],\n        \"configFilePaths\": [\n          \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n          \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n        ],\n        \"originalTargetFrameworks\": [\n          \"netcoreapp3.1\"\n        ],\n        \"sources\": {\n          \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n          \"https://api.nuget.org/v3/index.json\": {}\n        },\n        \"frameworks\": {\n          \"netcoreapp3.1\": {\n            \"projectReferences\": {}\n          }\n        },\n        \"warningProperties\": {\n          \"warnAsError\": [\n            \"NU1605\"\n          ]\n        }\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"imports\": [\n            \"net461\",\n            \"net462\",\n            \"net47\",\n            \"net471\",\n            \"net472\",\n            \"net48\"\n          ],\n          \"assetTargetFallback\": true,\n          \"warn\": true,\n          \"frameworkReferences\": {\n            \"Microsoft.NETCore.App\": {\n              \"privateAssets\": \"all\"\n            }\n          },\n          \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n        }\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.dgspec.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.dgspec.json	(date 1603552752728)
+@@ -1,30 +1,95 @@
+ {
+   "format": 1,
+   "restore": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj": {}
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj": {}
+   },
+   "projects": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj": {
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj": {
+       "version": "1.0.0",
+       "restore": {
+-        "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj",
++        "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj",
+         "projectName": "Rpk_back.Application",
+-        "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj",
+-        "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-        "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\obj\\",
++        "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj",
++        "packagesPath": "/home/mikolaj/.nuget/packages/",
++        "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/",
+         "projectStyle": "PackageReference",
+-        "fallbackFolders": [
+-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-        ],
+         "configFilePaths": [
+-          "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++          "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+         ],
+         "originalTargetFrameworks": [
+           "netcoreapp3.1"
+         ],
+         "sources": {
+-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
++          "https://api.nuget.org/v3/index.json": {}
++        },
++        "frameworks": {
++          "netcoreapp3.1": {
++            "projectReferences": {
++              "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj": {
++                "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj"
++              }
++            }
++          }
++        },
++        "warningProperties": {
++          "warnAsError": [
++            "NU1605"
++          ]
++        }
++      },
++      "frameworks": {
++        "netcoreapp3.1": {
++          "dependencies": {
++            "Microsoft.EntityFrameworkCore": {
++              "target": "Package",
++              "version": "[3.1.9, )"
++            },
++            "Microsoft.EntityFrameworkCore.Design": {
++              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
++              "suppressParent": "All",
++              "target": "Package",
++              "version": "[3.1.9, )"
++            },
++            "Npgsql.EntityFrameworkCore.PostgreSQL": {
++              "target": "Package",
++              "version": "[3.1.4, )"
++            }
++          },
++          "imports": [
++            "net461",
++            "net462",
++            "net47",
++            "net471",
++            "net472",
++            "net48"
++          ],
++          "assetTargetFallback": true,
++          "warn": true,
++          "frameworkReferences": {
++            "Microsoft.NETCore.App": {
++              "privateAssets": "all"
++            }
++          },
++          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
++        }
++      }
++    },
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj": {
++      "version": "1.0.0",
++      "restore": {
++        "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj",
++        "projectName": "Rpk_back.Domain",
++        "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj",
++        "packagesPath": "/home/mikolaj/.nuget/packages/",
++        "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/obj/",
++        "projectStyle": "PackageReference",
++        "configFilePaths": [
++          "/home/mikolaj/.nuget/NuGet/NuGet.Config"
++        ],
++        "originalTargetFrameworks": [
++          "netcoreapp3.1"
++        ],
++        "sources": {
+           "https://api.nuget.org/v3/index.json": {}
+         },
+         "frameworks": {
+@@ -40,6 +105,12 @@
+       },
+       "frameworks": {
+         "netcoreapp3.1": {
++          "dependencies": {
++            "AutoMapper": {
++              "target": "Package",
++              "version": "[10.1.1, )"
++            }
++          },
+           "imports": [
+             "net461",
+             "net462",
+@@ -55,7 +126,7 @@
+               "privateAssets": "all"
+             }
+           },
+-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+         }
+       }
+     }
+Index: Rpk_back.Domain/Rpk_back.Domain.csproj
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><Project Sdk=\"Microsoft.NET.Sdk\">\n\n  <PropertyGroup>\n    <TargetFramework>netcoreapp3.1</TargetFramework>\n  </PropertyGroup>\n\n</Project>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Domain/Rpk_back.Domain.csproj	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.Domain/Rpk_back.Domain.csproj	(date 1603552822793)
+@@ -4,4 +4,8 @@
+     <TargetFramework>netcoreapp3.1</TargetFramework>
+   </PropertyGroup>
+ 
++  <ItemGroup>
++    <PackageReference Include="AutoMapper" Version="10.1.1" />
++  </ItemGroup>
++
+ </Project>
+Index: Rpk_back.Domain/Dtos/SensorCreateDto.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Domain/Dtos/SensorCreateDto.cs	(date 1603552908426)
++++ Rpk_back.Domain/Dtos/SensorCreateDto.cs	(date 1603552908426)
+@@ -0,0 +1,22 @@
++using System;
++using System.ComponentModel.DataAnnotations;
++
++namespace Rpk_back.Domain.Dtos
++{
++    public class SensorCreateDto
++    {
++        [Key]
++        [Required]
++        public Guid SensorId { get; set; }
++        [Required]
++        public DateTime MeasurementTime { get; set; }
++        [Required]
++        public float SensorValue { get; set; }
++        [Required]
++        public int Localization { get; set; }
++        [Required]
++        public int SensorType { get; set; }
++        [Required]
++        public Guid SensorGroupGuid { get; set; }
++    }
++}
+\ No newline at end of file
+Index: Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.g.props
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n<Project ToolsVersion=\"14.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">\n  <PropertyGroup Condition=\" '$(ExcludeRestorePackageImports)' != 'true' \">\n    <RestoreSuccess Condition=\" '$(RestoreSuccess)' == '' \">True</RestoreSuccess>\n    <RestoreTool Condition=\" '$(RestoreTool)' == '' \">NuGet</RestoreTool>\n    <ProjectAssetsFile Condition=\" '$(ProjectAssetsFile)' == '' \">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>\n    <NuGetPackageRoot Condition=\" '$(NuGetPackageRoot)' == '' \">$(UserProfile)\\.nuget\\packages\\</NuGetPackageRoot>\n    <NuGetPackageFolders Condition=\" '$(NuGetPackageFolders)' == '' \">C:\\Users\\Student235046\\.nuget\\packages\\;C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder</NuGetPackageFolders>\n    <NuGetProjectStyle Condition=\" '$(NuGetProjectStyle)' == '' \">PackageReference</NuGetProjectStyle>\n    <NuGetToolVersion Condition=\" '$(NuGetToolVersion)' == '' \">5.4.0</NuGetToolVersion>\n  </PropertyGroup>\n  <PropertyGroup>\n    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>\n  </PropertyGroup>\n</Project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.g.props	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.Application/obj/Rpk_back.Application.csproj.nuget.g.props	(date 1603552460854)
+@@ -4,12 +4,15 @@
+     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Student235046\.nuget\packages\;C:\Program Files\dotnet\sdk\NuGetFallbackFolder</NuGetPackageFolders>
++    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageRoot>
++    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageFolders>
+     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.4.0</NuGetToolVersion>
++    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.5.0</NuGetToolVersion>
+   </PropertyGroup>
+   <PropertyGroup>
+     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+   </PropertyGroup>
++  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
++    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design/3.1.9/build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design/3.1.9/build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props')" />
++  </ImportGroup>
+ </Project>
+\ No newline at end of file
+Index: Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.g.props
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n<Project ToolsVersion=\"14.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">\n  <PropertyGroup Condition=\" '$(ExcludeRestorePackageImports)' != 'true' \">\n    <RestoreSuccess Condition=\" '$(RestoreSuccess)' == '' \">True</RestoreSuccess>\n    <RestoreTool Condition=\" '$(RestoreTool)' == '' \">NuGet</RestoreTool>\n    <ProjectAssetsFile Condition=\" '$(ProjectAssetsFile)' == '' \">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>\n    <NuGetPackageRoot Condition=\" '$(NuGetPackageRoot)' == '' \">$(UserProfile)\\.nuget\\packages\\</NuGetPackageRoot>\n    <NuGetPackageFolders Condition=\" '$(NuGetPackageFolders)' == '' \">C:\\Users\\Student235046\\.nuget\\packages\\;C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder</NuGetPackageFolders>\n    <NuGetProjectStyle Condition=\" '$(NuGetProjectStyle)' == '' \">PackageReference</NuGetProjectStyle>\n    <NuGetToolVersion Condition=\" '$(NuGetToolVersion)' == '' \">5.4.0</NuGetToolVersion>\n  </PropertyGroup>\n  <PropertyGroup>\n    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>\n  </PropertyGroup>\n</Project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.g.props	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.g.props	(date 1603552455310)
+@@ -4,10 +4,10 @@
+     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Student235046\.nuget\packages\;C:\Program Files\dotnet\sdk\NuGetFallbackFolder</NuGetPackageFolders>
++    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageRoot>
++    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageFolders>
+     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.4.0</NuGetToolVersion>
++    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.5.0</NuGetToolVersion>
+   </PropertyGroup>
+   <PropertyGroup>
+     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+Index: Rpk_back.MongoDb/obj/project.assets.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"version\": 3,\n  \"targets\": {\n    \".NETCoreApp,Version=v3.1\": {}\n  },\n  \"libraries\": {},\n  \"projectFileDependencyGroups\": {\n    \".NETCoreApp,Version=v3.1\": []\n  },\n  \"packageFolders\": {\n    \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\": {},\n    \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\": {}\n  },\n  \"project\": {\n    \"version\": \"1.0.0\",\n    \"restore\": {\n      \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.MongoDb\\\\Rpk_back.MongoDb.csproj\",\n      \"projectName\": \"Rpk_back.MongoDb\",\n      \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.MongoDb\\\\Rpk_back.MongoDb.csproj\",\n      \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n      \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.MongoDb\\\\obj\\\\\",\n      \"projectStyle\": \"PackageReference\",\n      \"fallbackFolders\": [\n        \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n      ],\n      \"configFilePaths\": [\n        \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n        \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n      ],\n      \"originalTargetFrameworks\": [\n        \"netcoreapp3.1\"\n      ],\n      \"sources\": {\n        \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n        \"https://api.nuget.org/v3/index.json\": {}\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"projectReferences\": {}\n        }\n      },\n      \"warningProperties\": {\n        \"warnAsError\": [\n          \"NU1605\"\n        ]\n      }\n    },\n    \"frameworks\": {\n      \"netcoreapp3.1\": {\n        \"imports\": [\n          \"net461\",\n          \"net462\",\n          \"net47\",\n          \"net471\",\n          \"net472\",\n          \"net48\"\n        ],\n        \"assetTargetFallback\": true,\n        \"warn\": true,\n        \"frameworkReferences\": {\n          \"Microsoft.NETCore.App\": {\n            \"privateAssets\": \"all\"\n          }\n        },\n        \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.MongoDb/obj/project.assets.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.MongoDb/obj/project.assets.json	(date 1603552752732)
+@@ -8,30 +8,24 @@
+     ".NETCoreApp,Version=v3.1": []
+   },
+   "packageFolders": {
+-    "C:\\Users\\Student235046\\.nuget\\packages\\": {},
+-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
++    "/home/mikolaj/.nuget/packages/": {}
+   },
+   "project": {
+     "version": "1.0.0",
+     "restore": {
+-      "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.MongoDb\\Rpk_back.MongoDb.csproj",
++      "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/Rpk_back.MongoDb.csproj",
+       "projectName": "Rpk_back.MongoDb",
+-      "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.MongoDb\\Rpk_back.MongoDb.csproj",
+-      "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-      "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.MongoDb\\obj\\",
++      "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/Rpk_back.MongoDb.csproj",
++      "packagesPath": "/home/mikolaj/.nuget/packages/",
++      "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/",
+       "projectStyle": "PackageReference",
+-      "fallbackFolders": [
+-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-      ],
+       "configFilePaths": [
+-        "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++        "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+       ],
+       "originalTargetFrameworks": [
+         "netcoreapp3.1"
+       ],
+       "sources": {
+-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+         "https://api.nuget.org/v3/index.json": {}
+       },
+       "frameworks": {
+@@ -62,7 +56,7 @@
+             "privateAssets": "all"
+           }
+         },
+-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+       }
+     }
+   }
+Index: Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.dgspec.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"format\": 1,\n  \"restore\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.MongoDb\\\\Rpk_back.MongoDb.csproj\": {}\n  },\n  \"projects\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.MongoDb\\\\Rpk_back.MongoDb.csproj\": {\n      \"version\": \"1.0.0\",\n      \"restore\": {\n        \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.MongoDb\\\\Rpk_back.MongoDb.csproj\",\n        \"projectName\": \"Rpk_back.MongoDb\",\n        \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.MongoDb\\\\Rpk_back.MongoDb.csproj\",\n        \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n        \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.MongoDb\\\\obj\\\\\",\n        \"projectStyle\": \"PackageReference\",\n        \"fallbackFolders\": [\n          \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n        ],\n        \"configFilePaths\": [\n          \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n          \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n        ],\n        \"originalTargetFrameworks\": [\n          \"netcoreapp3.1\"\n        ],\n        \"sources\": {\n          \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n          \"https://api.nuget.org/v3/index.json\": {}\n        },\n        \"frameworks\": {\n          \"netcoreapp3.1\": {\n            \"projectReferences\": {}\n          }\n        },\n        \"warningProperties\": {\n          \"warnAsError\": [\n            \"NU1605\"\n          ]\n        }\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"imports\": [\n            \"net461\",\n            \"net462\",\n            \"net47\",\n            \"net471\",\n            \"net472\",\n            \"net48\"\n          ],\n          \"assetTargetFallback\": true,\n          \"warn\": true,\n          \"frameworkReferences\": {\n            \"Microsoft.NETCore.App\": {\n              \"privateAssets\": \"all\"\n            }\n          },\n          \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n        }\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.dgspec.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.MongoDb/obj/Rpk_back.MongoDb.csproj.nuget.dgspec.json	(date 1603552752728)
+@@ -1,30 +1,25 @@
+ {
+   "format": 1,
+   "restore": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.MongoDb\\Rpk_back.MongoDb.csproj": {}
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/Rpk_back.MongoDb.csproj": {}
+   },
+   "projects": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.MongoDb\\Rpk_back.MongoDb.csproj": {
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/Rpk_back.MongoDb.csproj": {
+       "version": "1.0.0",
+       "restore": {
+-        "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.MongoDb\\Rpk_back.MongoDb.csproj",
++        "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/Rpk_back.MongoDb.csproj",
+         "projectName": "Rpk_back.MongoDb",
+-        "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.MongoDb\\Rpk_back.MongoDb.csproj",
+-        "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-        "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.MongoDb\\obj\\",
++        "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/Rpk_back.MongoDb.csproj",
++        "packagesPath": "/home/mikolaj/.nuget/packages/",
++        "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/",
+         "projectStyle": "PackageReference",
+-        "fallbackFolders": [
+-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-        ],
+         "configFilePaths": [
+-          "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++          "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+         ],
+         "originalTargetFrameworks": [
+           "netcoreapp3.1"
+         ],
+         "sources": {
+-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+           "https://api.nuget.org/v3/index.json": {}
+         },
+         "frameworks": {
+@@ -55,7 +50,7 @@
+               "privateAssets": "all"
+             }
+           },
+-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+         }
+       }
+     }
+Index: Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.g.props
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n<Project ToolsVersion=\"14.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">\n  <PropertyGroup Condition=\" '$(ExcludeRestorePackageImports)' != 'true' \">\n    <RestoreSuccess Condition=\" '$(RestoreSuccess)' == '' \">True</RestoreSuccess>\n    <RestoreTool Condition=\" '$(RestoreTool)' == '' \">NuGet</RestoreTool>\n    <ProjectAssetsFile Condition=\" '$(ProjectAssetsFile)' == '' \">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>\n    <NuGetPackageRoot Condition=\" '$(NuGetPackageRoot)' == '' \">$(UserProfile)\\.nuget\\packages\\</NuGetPackageRoot>\n    <NuGetPackageFolders Condition=\" '$(NuGetPackageFolders)' == '' \">C:\\Users\\Student235046\\.nuget\\packages\\;C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder</NuGetPackageFolders>\n    <NuGetProjectStyle Condition=\" '$(NuGetProjectStyle)' == '' \">PackageReference</NuGetProjectStyle>\n    <NuGetToolVersion Condition=\" '$(NuGetToolVersion)' == '' \">5.4.0</NuGetToolVersion>\n  </PropertyGroup>\n  <PropertyGroup>\n    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>\n  </PropertyGroup>\n</Project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.g.props	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.g.props	(date 1603552455310)
+@@ -4,10 +4,10 @@
+     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Student235046\.nuget\packages\;C:\Program Files\dotnet\sdk\NuGetFallbackFolder</NuGetPackageFolders>
++    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageRoot>
++    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageFolders>
+     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.4.0</NuGetToolVersion>
++    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.5.0</NuGetToolVersion>
+   </PropertyGroup>
+   <PropertyGroup>
+     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+Index: Rpk_back.WebAPI/obj/project.assets.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"version\": 3,\n  \"targets\": {\n    \".NETCoreApp,Version=v3.1\": {}\n  },\n  \"libraries\": {},\n  \"projectFileDependencyGroups\": {\n    \".NETCoreApp,Version=v3.1\": []\n  },\n  \"packageFolders\": {\n    \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\": {},\n    \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\": {}\n  },\n  \"project\": {\n    \"version\": \"1.0.0\",\n    \"restore\": {\n      \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.WebAPI\\\\Rpk_back.WebAPI.csproj\",\n      \"projectName\": \"Rpk_back.WebAPI\",\n      \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.WebAPI\\\\Rpk_back.WebAPI.csproj\",\n      \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n      \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.WebAPI\\\\obj\\\\\",\n      \"projectStyle\": \"PackageReference\",\n      \"fallbackFolders\": [\n        \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n      ],\n      \"configFilePaths\": [\n        \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n        \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n      ],\n      \"originalTargetFrameworks\": [\n        \"netcoreapp3.1\"\n      ],\n      \"sources\": {\n        \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n        \"https://api.nuget.org/v3/index.json\": {}\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"projectReferences\": {}\n        }\n      },\n      \"warningProperties\": {\n        \"warnAsError\": [\n          \"NU1605\"\n        ]\n      }\n    },\n    \"frameworks\": {\n      \"netcoreapp3.1\": {\n        \"imports\": [\n          \"net461\",\n          \"net462\",\n          \"net47\",\n          \"net471\",\n          \"net472\",\n          \"net48\"\n        ],\n        \"assetTargetFallback\": true,\n        \"warn\": true,\n        \"frameworkReferences\": {\n          \"Microsoft.AspNetCore.App\": {\n            \"privateAssets\": \"none\"\n          },\n          \"Microsoft.NETCore.App\": {\n            \"privateAssets\": \"all\"\n          }\n        },\n        \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.WebAPI/obj/project.assets.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.WebAPI/obj/project.assets.json	(date 1603552752732)
+@@ -8,30 +8,24 @@
+     ".NETCoreApp,Version=v3.1": []
+   },
+   "packageFolders": {
+-    "C:\\Users\\Student235046\\.nuget\\packages\\": {},
+-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
++    "/home/mikolaj/.nuget/packages/": {}
+   },
+   "project": {
+     "version": "1.0.0",
+     "restore": {
+-      "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.WebAPI\\Rpk_back.WebAPI.csproj",
++      "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/Rpk_back.WebAPI.csproj",
+       "projectName": "Rpk_back.WebAPI",
+-      "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.WebAPI\\Rpk_back.WebAPI.csproj",
+-      "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-      "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.WebAPI\\obj\\",
++      "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/Rpk_back.WebAPI.csproj",
++      "packagesPath": "/home/mikolaj/.nuget/packages/",
++      "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/obj/",
+       "projectStyle": "PackageReference",
+-      "fallbackFolders": [
+-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-      ],
+       "configFilePaths": [
+-        "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++        "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+       ],
+       "originalTargetFrameworks": [
+         "netcoreapp3.1"
+       ],
+       "sources": {
+-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+         "https://api.nuget.org/v3/index.json": {}
+       },
+       "frameworks": {
+@@ -65,7 +59,7 @@
+             "privateAssets": "all"
+           }
+         },
+-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+       }
+     }
+   }
+Index: Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.dgspec.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"format\": 1,\n  \"restore\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.WebAPI\\\\Rpk_back.WebAPI.csproj\": {}\n  },\n  \"projects\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.WebAPI\\\\Rpk_back.WebAPI.csproj\": {\n      \"version\": \"1.0.0\",\n      \"restore\": {\n        \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.WebAPI\\\\Rpk_back.WebAPI.csproj\",\n        \"projectName\": \"Rpk_back.WebAPI\",\n        \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.WebAPI\\\\Rpk_back.WebAPI.csproj\",\n        \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n        \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.WebAPI\\\\obj\\\\\",\n        \"projectStyle\": \"PackageReference\",\n        \"fallbackFolders\": [\n          \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n        ],\n        \"configFilePaths\": [\n          \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n          \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n        ],\n        \"originalTargetFrameworks\": [\n          \"netcoreapp3.1\"\n        ],\n        \"sources\": {\n          \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n          \"https://api.nuget.org/v3/index.json\": {}\n        },\n        \"frameworks\": {\n          \"netcoreapp3.1\": {\n            \"projectReferences\": {}\n          }\n        },\n        \"warningProperties\": {\n          \"warnAsError\": [\n            \"NU1605\"\n          ]\n        }\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"imports\": [\n            \"net461\",\n            \"net462\",\n            \"net47\",\n            \"net471\",\n            \"net472\",\n            \"net48\"\n          ],\n          \"assetTargetFallback\": true,\n          \"warn\": true,\n          \"frameworkReferences\": {\n            \"Microsoft.AspNetCore.App\": {\n              \"privateAssets\": \"none\"\n            },\n            \"Microsoft.NETCore.App\": {\n              \"privateAssets\": \"all\"\n            }\n          },\n          \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n        }\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.dgspec.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.WebAPI/obj/Rpk_back.WebAPI.csproj.nuget.dgspec.json	(date 1603552752728)
+@@ -1,30 +1,25 @@
+ {
+   "format": 1,
+   "restore": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.WebAPI\\Rpk_back.WebAPI.csproj": {}
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/Rpk_back.WebAPI.csproj": {}
+   },
+   "projects": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.WebAPI\\Rpk_back.WebAPI.csproj": {
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/Rpk_back.WebAPI.csproj": {
+       "version": "1.0.0",
+       "restore": {
+-        "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.WebAPI\\Rpk_back.WebAPI.csproj",
++        "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/Rpk_back.WebAPI.csproj",
+         "projectName": "Rpk_back.WebAPI",
+-        "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.WebAPI\\Rpk_back.WebAPI.csproj",
+-        "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-        "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.WebAPI\\obj\\",
++        "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/Rpk_back.WebAPI.csproj",
++        "packagesPath": "/home/mikolaj/.nuget/packages/",
++        "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.WebAPI/obj/",
+         "projectStyle": "PackageReference",
+-        "fallbackFolders": [
+-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-        ],
+         "configFilePaths": [
+-          "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++          "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+         ],
+         "originalTargetFrameworks": [
+           "netcoreapp3.1"
+         ],
+         "sources": {
+-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+           "https://api.nuget.org/v3/index.json": {}
+         },
+         "frameworks": {
+@@ -58,7 +53,7 @@
+               "privateAssets": "all"
+             }
+           },
+-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+         }
+       }
+     }
+Index: Rpk_back.Application/Rpk_back.Application.csproj
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><Project Sdk=\"Microsoft.NET.Sdk\">\n\n  <PropertyGroup>\n    <TargetFramework>netcoreapp3.1</TargetFramework>\n  </PropertyGroup>\n\n</Project>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Application/Rpk_back.Application.csproj	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.Application/Rpk_back.Application.csproj	(date 1603552747436)
+@@ -4,4 +4,17 @@
+     <TargetFramework>netcoreapp3.1</TargetFramework>
+   </PropertyGroup>
+ 
++  <ItemGroup>
++    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
++    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
++      <PrivateAssets>all</PrivateAssets>
++      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
++    </PackageReference>
++    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.4" />
++  </ItemGroup>
++
++  <ItemGroup>
++    <ProjectReference Include="..\Rpk_back.Domain\Rpk_back.Domain.csproj" />
++  </ItemGroup>
++
+ </Project>
+Index: Rpk_back.Domain/obj/project.assets.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"version\": 3,\n  \"targets\": {\n    \".NETCoreApp,Version=v3.1\": {}\n  },\n  \"libraries\": {},\n  \"projectFileDependencyGroups\": {\n    \".NETCoreApp,Version=v3.1\": []\n  },\n  \"packageFolders\": {\n    \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\": {},\n    \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\": {}\n  },\n  \"project\": {\n    \"version\": \"1.0.0\",\n    \"restore\": {\n      \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Domain\\\\Rpk_back.Domain.csproj\",\n      \"projectName\": \"Rpk_back.Domain\",\n      \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Domain\\\\Rpk_back.Domain.csproj\",\n      \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n      \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Domain\\\\obj\\\\\",\n      \"projectStyle\": \"PackageReference\",\n      \"fallbackFolders\": [\n        \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n      ],\n      \"configFilePaths\": [\n        \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n        \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n      ],\n      \"originalTargetFrameworks\": [\n        \"netcoreapp3.1\"\n      ],\n      \"sources\": {\n        \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n        \"https://api.nuget.org/v3/index.json\": {}\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"projectReferences\": {}\n        }\n      },\n      \"warningProperties\": {\n        \"warnAsError\": [\n          \"NU1605\"\n        ]\n      }\n    },\n    \"frameworks\": {\n      \"netcoreapp3.1\": {\n        \"imports\": [\n          \"net461\",\n          \"net462\",\n          \"net47\",\n          \"net471\",\n          \"net472\",\n          \"net48\"\n        ],\n        \"assetTargetFallback\": true,\n        \"warn\": true,\n        \"frameworkReferences\": {\n          \"Microsoft.NETCore.App\": {\n            \"privateAssets\": \"all\"\n          }\n        },\n        \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Domain/obj/project.assets.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.Domain/obj/project.assets.json	(date 1603552752736)
+@@ -1,37 +1,205 @@
+ {
+   "version": 3,
+   "targets": {
+-    ".NETCoreApp,Version=v3.1": {}
++    ".NETCoreApp,Version=v3.1": {
++      "AutoMapper/10.1.1": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.CSharp": "4.7.0",
++          "System.Reflection.Emit": "4.7.0"
++        },
++        "compile": {
++          "lib/netstandard2.0/AutoMapper.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/AutoMapper.dll": {}
++        }
++      },
++      "Microsoft.CSharp/4.7.0": {
++        "type": "package",
++        "compile": {
++          "ref/netcoreapp2.0/_._": {}
++        },
++        "runtime": {
++          "lib/netcoreapp2.0/_._": {}
++        }
++      },
++      "System.Reflection.Emit/4.7.0": {
++        "type": "package",
++        "compile": {
++          "ref/netcoreapp2.0/_._": {}
++        },
++        "runtime": {
++          "lib/netcoreapp2.0/_._": {}
++        }
++      }
++    }
+   },
+-  "libraries": {},
++  "libraries": {
++    "AutoMapper/10.1.1": {
++      "sha512": "uMgbqOdu9ZG5cIOty0C85hzzayBH2i9BthnS5FlMqKtMSHDv4ts81a2jS1VFaDBVhlBeIqJ/kQKjQY95BZde9w==",
++      "type": "package",
++      "path": "automapper/10.1.1",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "automapper.10.1.1.nupkg.sha512",
++        "automapper.nuspec",
++        "icon.png",
++        "lib/net461/AutoMapper.dll",
++        "lib/net461/AutoMapper.xml",
++        "lib/netstandard2.0/AutoMapper.dll",
++        "lib/netstandard2.0/AutoMapper.xml"
++      ]
++    },
++    "Microsoft.CSharp/4.7.0": {
++      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
++      "type": "package",
++      "path": "microsoft.csharp/4.7.0",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/MonoAndroid10/_._",
++        "lib/MonoTouch10/_._",
++        "lib/net45/_._",
++        "lib/netcore50/Microsoft.CSharp.dll",
++        "lib/netcoreapp2.0/_._",
++        "lib/netstandard1.3/Microsoft.CSharp.dll",
++        "lib/netstandard2.0/Microsoft.CSharp.dll",
++        "lib/netstandard2.0/Microsoft.CSharp.xml",
++        "lib/portable-net45+win8+wp8+wpa81/_._",
++        "lib/uap10.0.16299/_._",
++        "lib/win8/_._",
++        "lib/wp80/_._",
++        "lib/wpa81/_._",
++        "lib/xamarinios10/_._",
++        "lib/xamarinmac20/_._",
++        "lib/xamarintvos10/_._",
++        "lib/xamarinwatchos10/_._",
++        "microsoft.csharp.4.7.0.nupkg.sha512",
++        "microsoft.csharp.nuspec",
++        "ref/MonoAndroid10/_._",
++        "ref/MonoTouch10/_._",
++        "ref/net45/_._",
++        "ref/netcore50/Microsoft.CSharp.dll",
++        "ref/netcore50/Microsoft.CSharp.xml",
++        "ref/netcore50/de/Microsoft.CSharp.xml",
++        "ref/netcore50/es/Microsoft.CSharp.xml",
++        "ref/netcore50/fr/Microsoft.CSharp.xml",
++        "ref/netcore50/it/Microsoft.CSharp.xml",
++        "ref/netcore50/ja/Microsoft.CSharp.xml",
++        "ref/netcore50/ko/Microsoft.CSharp.xml",
++        "ref/netcore50/ru/Microsoft.CSharp.xml",
++        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
++        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
++        "ref/netcoreapp2.0/_._",
++        "ref/netstandard1.0/Microsoft.CSharp.dll",
++        "ref/netstandard1.0/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
++        "ref/netstandard2.0/Microsoft.CSharp.dll",
++        "ref/netstandard2.0/Microsoft.CSharp.xml",
++        "ref/portable-net45+win8+wp8+wpa81/_._",
++        "ref/uap10.0.16299/_._",
++        "ref/win8/_._",
++        "ref/wp80/_._",
++        "ref/wpa81/_._",
++        "ref/xamarinios10/_._",
++        "ref/xamarinmac20/_._",
++        "ref/xamarintvos10/_._",
++        "ref/xamarinwatchos10/_._",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    },
++    "System.Reflection.Emit/4.7.0": {
++      "sha512": "VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
++      "type": "package",
++      "path": "system.reflection.emit/4.7.0",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/MonoAndroid10/_._",
++        "lib/MonoTouch10/_._",
++        "lib/net45/_._",
++        "lib/netcore50/System.Reflection.Emit.dll",
++        "lib/netcoreapp2.0/_._",
++        "lib/netstandard1.1/System.Reflection.Emit.dll",
++        "lib/netstandard1.1/System.Reflection.Emit.xml",
++        "lib/netstandard1.3/System.Reflection.Emit.dll",
++        "lib/netstandard2.0/System.Reflection.Emit.dll",
++        "lib/netstandard2.0/System.Reflection.Emit.xml",
++        "lib/netstandard2.1/_._",
++        "lib/xamarinios10/_._",
++        "lib/xamarinmac20/_._",
++        "lib/xamarintvos10/_._",
++        "lib/xamarinwatchos10/_._",
++        "ref/MonoAndroid10/_._",
++        "ref/MonoTouch10/_._",
++        "ref/net45/_._",
++        "ref/netcoreapp2.0/_._",
++        "ref/netstandard1.1/System.Reflection.Emit.dll",
++        "ref/netstandard1.1/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/de/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/es/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/fr/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/it/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/ja/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/ko/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/ru/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/zh-hans/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/zh-hant/System.Reflection.Emit.xml",
++        "ref/netstandard2.0/System.Reflection.Emit.dll",
++        "ref/netstandard2.0/System.Reflection.Emit.xml",
++        "ref/netstandard2.1/_._",
++        "ref/xamarinios10/_._",
++        "ref/xamarinmac20/_._",
++        "ref/xamarintvos10/_._",
++        "ref/xamarinwatchos10/_._",
++        "runtimes/aot/lib/netcore50/System.Reflection.Emit.dll",
++        "runtimes/aot/lib/netcore50/System.Reflection.Emit.xml",
++        "system.reflection.emit.4.7.0.nupkg.sha512",
++        "system.reflection.emit.nuspec",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    }
++  },
+   "projectFileDependencyGroups": {
+-    ".NETCoreApp,Version=v3.1": []
++    ".NETCoreApp,Version=v3.1": [
++      "AutoMapper >= 10.1.1"
++    ]
+   },
+   "packageFolders": {
+-    "C:\\Users\\Student235046\\.nuget\\packages\\": {},
+-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
++    "/home/mikolaj/.nuget/packages/": {}
+   },
+   "project": {
+     "version": "1.0.0",
+     "restore": {
+-      "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj",
++      "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj",
+       "projectName": "Rpk_back.Domain",
+-      "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj",
+-      "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-      "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\obj\\",
++      "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj",
++      "packagesPath": "/home/mikolaj/.nuget/packages/",
++      "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/obj/",
+       "projectStyle": "PackageReference",
+-      "fallbackFolders": [
+-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-      ],
+       "configFilePaths": [
+-        "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++        "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+       ],
+       "originalTargetFrameworks": [
+         "netcoreapp3.1"
+       ],
+       "sources": {
+-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+         "https://api.nuget.org/v3/index.json": {}
+       },
+       "frameworks": {
+@@ -47,6 +215,12 @@
+     },
+     "frameworks": {
+       "netcoreapp3.1": {
++        "dependencies": {
++          "AutoMapper": {
++            "target": "Package",
++            "version": "[10.1.1, )"
++          }
++        },
+         "imports": [
+           "net461",
+           "net462",
+@@ -62,7 +236,7 @@
+             "privateAssets": "all"
+           }
+         },
+-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+       }
+     }
+   }
+Index: Rpk_back.Application/Repository/SensorRepository/ISensorRepository.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Application/Repository/SensorRepository/ISensorRepository.cs	(date 1603552707432)
++++ Rpk_back.Application/Repository/SensorRepository/ISensorRepository.cs	(date 1603552707432)
+@@ -0,0 +1,10 @@
++using System.Threading.Tasks;
++using Rpk_back.Domain.Models;
++
++namespace Rpk_back.Application.Repository.SensorRepository
++{
++    public interface ISensorRepository
++    {
++        Task<Sensor> GetGroupByGuid();
++    }
++}
+\ No newline at end of file
+Index: Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.dgspec.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"format\": 1,\n  \"restore\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Domain\\\\Rpk_back.Domain.csproj\": {}\n  },\n  \"projects\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Domain\\\\Rpk_back.Domain.csproj\": {\n      \"version\": \"1.0.0\",\n      \"restore\": {\n        \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Domain\\\\Rpk_back.Domain.csproj\",\n        \"projectName\": \"Rpk_back.Domain\",\n        \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Domain\\\\Rpk_back.Domain.csproj\",\n        \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n        \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Domain\\\\obj\\\\\",\n        \"projectStyle\": \"PackageReference\",\n        \"fallbackFolders\": [\n          \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n        ],\n        \"configFilePaths\": [\n          \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n          \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n        ],\n        \"originalTargetFrameworks\": [\n          \"netcoreapp3.1\"\n        ],\n        \"sources\": {\n          \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n          \"https://api.nuget.org/v3/index.json\": {}\n        },\n        \"frameworks\": {\n          \"netcoreapp3.1\": {\n            \"projectReferences\": {}\n          }\n        },\n        \"warningProperties\": {\n          \"warnAsError\": [\n            \"NU1605\"\n          ]\n        }\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"imports\": [\n            \"net461\",\n            \"net462\",\n            \"net47\",\n            \"net471\",\n            \"net472\",\n            \"net48\"\n          ],\n          \"assetTargetFallback\": true,\n          \"warn\": true,\n          \"frameworkReferences\": {\n            \"Microsoft.NETCore.App\": {\n              \"privateAssets\": \"all\"\n            }\n          },\n          \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n        }\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.dgspec.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.dgspec.json	(date 1603552752728)
+@@ -1,30 +1,25 @@
+ {
+   "format": 1,
+   "restore": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj": {}
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj": {}
+   },
+   "projects": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj": {
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj": {
+       "version": "1.0.0",
+       "restore": {
+-        "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj",
++        "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj",
+         "projectName": "Rpk_back.Domain",
+-        "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj",
+-        "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-        "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\obj\\",
++        "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj",
++        "packagesPath": "/home/mikolaj/.nuget/packages/",
++        "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/obj/",
+         "projectStyle": "PackageReference",
+-        "fallbackFolders": [
+-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-        ],
+         "configFilePaths": [
+-          "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++          "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+         ],
+         "originalTargetFrameworks": [
+           "netcoreapp3.1"
+         ],
+         "sources": {
+-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+           "https://api.nuget.org/v3/index.json": {}
+         },
+         "frameworks": {
+@@ -40,6 +35,12 @@
+       },
+       "frameworks": {
+         "netcoreapp3.1": {
++          "dependencies": {
++            "AutoMapper": {
++              "target": "Package",
++              "version": "[10.1.1, )"
++            }
++          },
+           "imports": [
+             "net461",
+             "net462",
+@@ -55,7 +56,7 @@
+               "privateAssets": "all"
+             }
+           },
+-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+         }
+       }
+     }
+Index: Rpk_back.Application/Db/Context.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Application/Db/Context.cs	(date 1603552525303)
++++ Rpk_back.Application/Db/Context.cs	(date 1603552525303)
+@@ -0,0 +1,13 @@
++using Microsoft.EntityFrameworkCore;
++using Rpk_back.Domain.Models;
++
++namespace Rpk_back.Application.Db
++{
++    public class Context : DbContext
++    {
++        public Context(DbContextOptions<Context> options): base(options)
++        { }
++
++        public DbSet<Sensor> SensorItems { get; set; }
++    }
++}
+\ No newline at end of file
+Index: Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.g.props
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n<Project ToolsVersion=\"14.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">\n  <PropertyGroup Condition=\" '$(ExcludeRestorePackageImports)' != 'true' \">\n    <RestoreSuccess Condition=\" '$(RestoreSuccess)' == '' \">True</RestoreSuccess>\n    <RestoreTool Condition=\" '$(RestoreTool)' == '' \">NuGet</RestoreTool>\n    <ProjectAssetsFile Condition=\" '$(ProjectAssetsFile)' == '' \">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>\n    <NuGetPackageRoot Condition=\" '$(NuGetPackageRoot)' == '' \">$(UserProfile)\\.nuget\\packages\\</NuGetPackageRoot>\n    <NuGetPackageFolders Condition=\" '$(NuGetPackageFolders)' == '' \">C:\\Users\\Student235046\\.nuget\\packages\\;C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder</NuGetPackageFolders>\n    <NuGetProjectStyle Condition=\" '$(NuGetProjectStyle)' == '' \">PackageReference</NuGetProjectStyle>\n    <NuGetToolVersion Condition=\" '$(NuGetToolVersion)' == '' \">5.4.0</NuGetToolVersion>\n  </PropertyGroup>\n  <PropertyGroup>\n    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>\n  </PropertyGroup>\n</Project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.g.props	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.Domain/obj/Rpk_back.Domain.csproj.nuget.g.props	(date 1603552455310)
+@@ -4,10 +4,10 @@
+     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Student235046\.nuget\packages\;C:\Program Files\dotnet\sdk\NuGetFallbackFolder</NuGetPackageFolders>
++    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageRoot>
++    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageFolders>
+     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.4.0</NuGetToolVersion>
++    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.5.0</NuGetToolVersion>
+   </PropertyGroup>
+   <PropertyGroup>
+     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+Index: Rpk_back.Application/Repository/SensorRepository/SensorRepository.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Application/Repository/SensorRepository/SensorRepository.cs	(date 1603552729968)
++++ Rpk_back.Application/Repository/SensorRepository/SensorRepository.cs	(date 1603552729968)
+@@ -0,0 +1,13 @@
++using System.Threading.Tasks;
++using Rpk_back.Domain.Models;
++
++namespace Rpk_back.Application.Repository.SensorRepository
++{
++    public class SensorRepository : ISensorRepository
++    {
++        public Task<Sensor> GetGroupByGuid()
++        {
++            throw new System.NotImplementedException();
++        }
++    }
++}
+\ No newline at end of file
+Index: Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.g.props
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"no\"?>\n<Project ToolsVersion=\"14.0\" xmlns=\"http://schemas.microsoft.com/developer/msbuild/2003\">\n  <PropertyGroup Condition=\" '$(ExcludeRestorePackageImports)' != 'true' \">\n    <RestoreSuccess Condition=\" '$(RestoreSuccess)' == '' \">True</RestoreSuccess>\n    <RestoreTool Condition=\" '$(RestoreTool)' == '' \">NuGet</RestoreTool>\n    <ProjectAssetsFile Condition=\" '$(ProjectAssetsFile)' == '' \">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>\n    <NuGetPackageRoot Condition=\" '$(NuGetPackageRoot)' == '' \">$(UserProfile)\\.nuget\\packages\\</NuGetPackageRoot>\n    <NuGetPackageFolders Condition=\" '$(NuGetPackageFolders)' == '' \">C:\\Users\\Student235046\\.nuget\\packages\\;C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder</NuGetPackageFolders>\n    <NuGetProjectStyle Condition=\" '$(NuGetProjectStyle)' == '' \">PackageReference</NuGetProjectStyle>\n    <NuGetToolVersion Condition=\" '$(NuGetToolVersion)' == '' \">5.4.0</NuGetToolVersion>\n  </PropertyGroup>\n  <PropertyGroup>\n    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>\n  </PropertyGroup>\n</Project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.g.props	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.g.props	(date 1603552455310)
+@@ -4,10 +4,10 @@
+     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Student235046\.nuget\packages\;C:\Program Files\dotnet\sdk\NuGetFallbackFolder</NuGetPackageFolders>
++    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageRoot>
++    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">/home/mikolaj/.nuget/packages/</NuGetPackageFolders>
+     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+-    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.4.0</NuGetToolVersion>
++    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.5.0</NuGetToolVersion>
+   </PropertyGroup>
+   <PropertyGroup>
+     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+Index: Rpk_back.PostgresSQL/obj/project.assets.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"version\": 3,\n  \"targets\": {\n    \".NETCoreApp,Version=v3.1\": {}\n  },\n  \"libraries\": {},\n  \"projectFileDependencyGroups\": {\n    \".NETCoreApp,Version=v3.1\": []\n  },\n  \"packageFolders\": {\n    \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\": {},\n    \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\": {}\n  },\n  \"project\": {\n    \"version\": \"1.0.0\",\n    \"restore\": {\n      \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.PostgresSQL\\\\Rpk_back.PostgresSQL.csproj\",\n      \"projectName\": \"Rpk_back.PostgresSQL\",\n      \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.PostgresSQL\\\\Rpk_back.PostgresSQL.csproj\",\n      \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n      \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.PostgresSQL\\\\obj\\\\\",\n      \"projectStyle\": \"PackageReference\",\n      \"fallbackFolders\": [\n        \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n      ],\n      \"configFilePaths\": [\n        \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n        \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n      ],\n      \"originalTargetFrameworks\": [\n        \"netcoreapp3.1\"\n      ],\n      \"sources\": {\n        \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n        \"https://api.nuget.org/v3/index.json\": {}\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"projectReferences\": {}\n        }\n      },\n      \"warningProperties\": {\n        \"warnAsError\": [\n          \"NU1605\"\n        ]\n      }\n    },\n    \"frameworks\": {\n      \"netcoreapp3.1\": {\n        \"imports\": [\n          \"net461\",\n          \"net462\",\n          \"net47\",\n          \"net471\",\n          \"net472\",\n          \"net48\"\n        ],\n        \"assetTargetFallback\": true,\n        \"warn\": true,\n        \"frameworkReferences\": {\n          \"Microsoft.NETCore.App\": {\n            \"privateAssets\": \"all\"\n          }\n        },\n        \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.PostgresSQL/obj/project.assets.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.PostgresSQL/obj/project.assets.json	(date 1603552752732)
+@@ -8,30 +8,24 @@
+     ".NETCoreApp,Version=v3.1": []
+   },
+   "packageFolders": {
+-    "C:\\Users\\Student235046\\.nuget\\packages\\": {},
+-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
++    "/home/mikolaj/.nuget/packages/": {}
+   },
+   "project": {
+     "version": "1.0.0",
+     "restore": {
+-      "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.PostgresSQL\\Rpk_back.PostgresSQL.csproj",
++      "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/Rpk_back.PostgresSQL.csproj",
+       "projectName": "Rpk_back.PostgresSQL",
+-      "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.PostgresSQL\\Rpk_back.PostgresSQL.csproj",
+-      "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-      "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.PostgresSQL\\obj\\",
++      "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/Rpk_back.PostgresSQL.csproj",
++      "packagesPath": "/home/mikolaj/.nuget/packages/",
++      "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/obj/",
+       "projectStyle": "PackageReference",
+-      "fallbackFolders": [
+-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-      ],
+       "configFilePaths": [
+-        "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++        "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+       ],
+       "originalTargetFrameworks": [
+         "netcoreapp3.1"
+       ],
+       "sources": {
+-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+         "https://api.nuget.org/v3/index.json": {}
+       },
+       "frameworks": {
+@@ -62,7 +56,7 @@
+             "privateAssets": "all"
+           }
+         },
+-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+       }
+     }
+   }
+Index: Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.dgspec.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"format\": 1,\n  \"restore\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.PostgresSQL\\\\Rpk_back.PostgresSQL.csproj\": {}\n  },\n  \"projects\": {\n    \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.PostgresSQL\\\\Rpk_back.PostgresSQL.csproj\": {\n      \"version\": \"1.0.0\",\n      \"restore\": {\n        \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.PostgresSQL\\\\Rpk_back.PostgresSQL.csproj\",\n        \"projectName\": \"Rpk_back.PostgresSQL\",\n        \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.PostgresSQL\\\\Rpk_back.PostgresSQL.csproj\",\n        \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n        \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.PostgresSQL\\\\obj\\\\\",\n        \"projectStyle\": \"PackageReference\",\n        \"fallbackFolders\": [\n          \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n        ],\n        \"configFilePaths\": [\n          \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n          \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n        ],\n        \"originalTargetFrameworks\": [\n          \"netcoreapp3.1\"\n        ],\n        \"sources\": {\n          \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n          \"https://api.nuget.org/v3/index.json\": {}\n        },\n        \"frameworks\": {\n          \"netcoreapp3.1\": {\n            \"projectReferences\": {}\n          }\n        },\n        \"warningProperties\": {\n          \"warnAsError\": [\n            \"NU1605\"\n          ]\n        }\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"imports\": [\n            \"net461\",\n            \"net462\",\n            \"net47\",\n            \"net471\",\n            \"net472\",\n            \"net48\"\n          ],\n          \"assetTargetFallback\": true,\n          \"warn\": true,\n          \"frameworkReferences\": {\n            \"Microsoft.NETCore.App\": {\n              \"privateAssets\": \"all\"\n            }\n          },\n          \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n        }\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.dgspec.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.PostgresSQL/obj/Rpk_back.PostgresSQL.csproj.nuget.dgspec.json	(date 1603552752728)
+@@ -1,30 +1,25 @@
+ {
+   "format": 1,
+   "restore": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.PostgresSQL\\Rpk_back.PostgresSQL.csproj": {}
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/Rpk_back.PostgresSQL.csproj": {}
+   },
+   "projects": {
+-    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.PostgresSQL\\Rpk_back.PostgresSQL.csproj": {
++    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/Rpk_back.PostgresSQL.csproj": {
+       "version": "1.0.0",
+       "restore": {
+-        "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.PostgresSQL\\Rpk_back.PostgresSQL.csproj",
++        "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/Rpk_back.PostgresSQL.csproj",
+         "projectName": "Rpk_back.PostgresSQL",
+-        "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.PostgresSQL\\Rpk_back.PostgresSQL.csproj",
+-        "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-        "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.PostgresSQL\\obj\\",
++        "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/Rpk_back.PostgresSQL.csproj",
++        "packagesPath": "/home/mikolaj/.nuget/packages/",
++        "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.PostgresSQL/obj/",
+         "projectStyle": "PackageReference",
+-        "fallbackFolders": [
+-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-        ],
+         "configFilePaths": [
+-          "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++          "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+         ],
+         "originalTargetFrameworks": [
+           "netcoreapp3.1"
+         ],
+         "sources": {
+-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+           "https://api.nuget.org/v3/index.json": {}
+         },
+         "frameworks": {
+@@ -55,7 +50,7 @@
+               "privateAssets": "all"
+             }
+           },
+-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+         }
+       }
+     }
+Index: Rpk_back.Application/obj/project.assets.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\n  \"version\": 3,\n  \"targets\": {\n    \".NETCoreApp,Version=v3.1\": {}\n  },\n  \"libraries\": {},\n  \"projectFileDependencyGroups\": {\n    \".NETCoreApp,Version=v3.1\": []\n  },\n  \"packageFolders\": {\n    \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\": {},\n    \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\": {}\n  },\n  \"project\": {\n    \"version\": \"1.0.0\",\n    \"restore\": {\n      \"projectUniqueName\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Application\\\\Rpk_back.Application.csproj\",\n      \"projectName\": \"Rpk_back.Application\",\n      \"projectPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Application\\\\Rpk_back.Application.csproj\",\n      \"packagesPath\": \"C:\\\\Users\\\\Student235046\\\\.nuget\\\\packages\\\\\",\n      \"outputPath\": \"D:\\\\Repozytoria\\\\Hackaton_RPK\\\\Backend\\\\RPK_Backend\\\\Rpk_back.Application\\\\obj\\\\\",\n      \"projectStyle\": \"PackageReference\",\n      \"fallbackFolders\": [\n        \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\NuGetFallbackFolder\"\n      ],\n      \"configFilePaths\": [\n        \"C:\\\\Users\\\\Student235046\\\\AppData\\\\Roaming\\\\NuGet\\\\NuGet.Config\",\n        \"C:\\\\Program Files (x86)\\\\NuGet\\\\Config\\\\Microsoft.VisualStudio.Offline.config\"\n      ],\n      \"originalTargetFrameworks\": [\n        \"netcoreapp3.1\"\n      ],\n      \"sources\": {\n        \"C:\\\\Program Files (x86)\\\\Microsoft SDKs\\\\NuGetPackages\\\\\": {},\n        \"https://api.nuget.org/v3/index.json\": {}\n      },\n      \"frameworks\": {\n        \"netcoreapp3.1\": {\n          \"projectReferences\": {}\n        }\n      },\n      \"warningProperties\": {\n        \"warnAsError\": [\n          \"NU1605\"\n        ]\n      }\n    },\n    \"frameworks\": {\n      \"netcoreapp3.1\": {\n        \"imports\": [\n          \"net461\",\n          \"net462\",\n          \"net47\",\n          \"net471\",\n          \"net472\",\n          \"net48\"\n        ],\n        \"assetTargetFallback\": true,\n        \"warn\": true,\n        \"frameworkReferences\": {\n          \"Microsoft.NETCore.App\": {\n            \"privateAssets\": \"all\"\n          }\n        },\n        \"runtimeIdentifierGraphPath\": \"C:\\\\Program Files\\\\dotnet\\\\sdk\\\\3.1.101\\\\RuntimeIdentifierGraph.json\"\n      }\n    }\n  }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Application/obj/project.assets.json	(revision c9f4a3d33f07f5baf85df3231808d77959f6d921)
++++ Rpk_back.Application/obj/project.assets.json	(date 1603552752748)
+@@ -1,42 +1,1016 @@
+ {
+   "version": 3,
+   "targets": {
+-    ".NETCoreApp,Version=v3.1": {}
+-  },
+-  "libraries": {},
++    ".NETCoreApp,Version=v3.1": {
++      "AutoMapper/10.1.1": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.CSharp": "4.7.0",
++          "System.Reflection.Emit": "4.7.0"
++        },
++        "compile": {
++          "lib/netstandard2.0/AutoMapper.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/AutoMapper.dll": {}
++        }
++      },
++      "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
++        "type": "package",
++        "compile": {
++          "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {}
++        }
++      },
++      "Microsoft.Bcl.HashCode/1.1.0": {
++        "type": "package",
++        "compile": {
++          "ref/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp2.1/Microsoft.Bcl.HashCode.dll": {}
++        }
++      },
++      "Microsoft.CSharp/4.7.0": {
++        "type": "package",
++        "compile": {
++          "ref/netcoreapp2.0/_._": {}
++        },
++        "runtime": {
++          "lib/netcoreapp2.0/_._": {}
++        }
++      },
++      "Microsoft.EntityFrameworkCore/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
++          "Microsoft.Bcl.HashCode": "1.1.0",
++          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.9",
++          "Microsoft.EntityFrameworkCore.Analyzers": "3.1.9",
++          "Microsoft.Extensions.Caching.Memory": "3.1.9",
++          "Microsoft.Extensions.DependencyInjection": "3.1.9",
++          "Microsoft.Extensions.Logging": "3.1.9",
++          "System.Collections.Immutable": "1.7.1",
++          "System.ComponentModel.Annotations": "4.7.0",
++          "System.Diagnostics.DiagnosticSource": "4.7.1"
++        },
++        "compile": {
++          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {}
++        }
++      },
++      "Microsoft.EntityFrameworkCore.Abstractions/3.1.9": {
++        "type": "package",
++        "compile": {
++          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
++        }
++      },
++      "Microsoft.EntityFrameworkCore.Analyzers/3.1.9": {
++        "type": "package",
++        "compile": {
++          "lib/netstandard2.0/_._": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/_._": {}
++        }
++      },
++      "Microsoft.EntityFrameworkCore.Design/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.CSharp": "4.7.0",
++          "Microsoft.EntityFrameworkCore.Relational": "3.1.9"
++        },
++        "compile": {
++          "lib/netstandard2.0/_._": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
++        },
++        "build": {
++          "build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props": {}
++        }
++      },
++      "Microsoft.EntityFrameworkCore.Relational/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.EntityFrameworkCore": "3.1.9"
++        },
++        "compile": {
++          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll": {}
++        }
++      },
++      "Microsoft.Extensions.Caching.Abstractions/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.Extensions.Primitives": "3.1.9"
++        },
++        "compile": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll": {}
++        }
++      },
++      "Microsoft.Extensions.Caching.Memory/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.Extensions.Caching.Abstractions": "3.1.9",
++          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.9",
++          "Microsoft.Extensions.Logging.Abstractions": "3.1.9",
++          "Microsoft.Extensions.Options": "3.1.9"
++        },
++        "compile": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll": {}
++        }
++      },
++      "Microsoft.Extensions.Configuration/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.Extensions.Configuration.Abstractions": "3.1.9"
++        },
++        "compile": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {}
++        }
++      },
++      "Microsoft.Extensions.Configuration.Abstractions/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.Extensions.Primitives": "3.1.9"
++        },
++        "compile": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll": {}
++        }
++      },
++      "Microsoft.Extensions.Configuration.Binder/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.Extensions.Configuration": "3.1.9"
++        },
++        "compile": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll": {}
++        }
++      },
++      "Microsoft.Extensions.DependencyInjection/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.9"
++        },
++        "compile": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {}
++        }
++      },
++      "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.9": {
++        "type": "package",
++        "compile": {
++          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
++        }
++      },
++      "Microsoft.Extensions.Logging/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.Extensions.Configuration.Binder": "3.1.9",
++          "Microsoft.Extensions.DependencyInjection": "3.1.9",
++          "Microsoft.Extensions.Logging.Abstractions": "3.1.9",
++          "Microsoft.Extensions.Options": "3.1.9"
++        },
++        "compile": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Logging.dll": {}
++        }
++      },
++      "Microsoft.Extensions.Logging.Abstractions/3.1.9": {
++        "type": "package",
++        "compile": {
++          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
++        }
++      },
++      "Microsoft.Extensions.Options/3.1.9": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.9",
++          "Microsoft.Extensions.Primitives": "3.1.9"
++        },
++        "compile": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {}
++        }
++      },
++      "Microsoft.Extensions.Primitives/3.1.9": {
++        "type": "package",
++        "compile": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
++        }
++      },
++      "Npgsql/4.1.3.1": {
++        "type": "package",
++        "dependencies": {
++          "System.Runtime.CompilerServices.Unsafe": "4.6.0"
++        },
++        "compile": {
++          "lib/netcoreapp3.0/Npgsql.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp3.0/Npgsql.dll": {}
++        }
++      },
++      "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.4": {
++        "type": "package",
++        "dependencies": {
++          "Microsoft.EntityFrameworkCore": "3.1.4",
++          "Microsoft.EntityFrameworkCore.Abstractions": "3.1.4",
++          "Microsoft.EntityFrameworkCore.Relational": "3.1.4",
++          "Npgsql": "4.1.3.1"
++        },
++        "compile": {
++          "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
++        }
++      },
++      "System.Collections.Immutable/1.7.1": {
++        "type": "package",
++        "compile": {
++          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.0/System.Collections.Immutable.dll": {}
++        }
++      },
++      "System.ComponentModel.Annotations/4.7.0": {
++        "type": "package",
++        "compile": {
++          "ref/netstandard2.1/System.ComponentModel.Annotations.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard2.1/System.ComponentModel.Annotations.dll": {}
++        }
++      },
++      "System.Diagnostics.DiagnosticSource/4.7.1": {
++        "type": "package",
++        "compile": {
++          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
++        },
++        "runtime": {
++          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
++        }
++      },
++      "System.Reflection.Emit/4.7.0": {
++        "type": "package",
++        "compile": {
++          "ref/netcoreapp2.0/_._": {}
++        },
++        "runtime": {
++          "lib/netcoreapp2.0/_._": {}
++        }
++      },
++      "System.Runtime.CompilerServices.Unsafe/4.6.0": {
++        "type": "package",
++        "compile": {
++          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
++        },
++        "runtime": {
++          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
++        }
++      },
++      "Rpk_back.Domain/1.0.0": {
++        "type": "project",
++        "framework": ".NETCoreApp,Version=v3.1",
++        "dependencies": {
++          "AutoMapper": "10.1.1"
++        },
++        "compile": {
++          "bin/placeholder/Rpk_back.Domain.dll": {}
++        },
++        "runtime": {
++          "bin/placeholder/Rpk_back.Domain.dll": {}
++        }
++      }
++    }
++  },
++  "libraries": {
++    "AutoMapper/10.1.1": {
++      "sha512": "uMgbqOdu9ZG5cIOty0C85hzzayBH2i9BthnS5FlMqKtMSHDv4ts81a2jS1VFaDBVhlBeIqJ/kQKjQY95BZde9w==",
++      "type": "package",
++      "path": "automapper/10.1.1",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "automapper.10.1.1.nupkg.sha512",
++        "automapper.nuspec",
++        "icon.png",
++        "lib/net461/AutoMapper.dll",
++        "lib/net461/AutoMapper.xml",
++        "lib/netstandard2.0/AutoMapper.dll",
++        "lib/netstandard2.0/AutoMapper.xml"
++      ]
++    },
++    "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
++      "sha512": "yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
++      "type": "package",
++      "path": "microsoft.bcl.asyncinterfaces/1.1.1",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/net461/Microsoft.Bcl.AsyncInterfaces.dll",
++        "lib/net461/Microsoft.Bcl.AsyncInterfaces.xml",
++        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
++        "lib/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.xml",
++        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
++        "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.xml",
++        "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
++        "microsoft.bcl.asyncinterfaces.nuspec",
++        "ref/net461/Microsoft.Bcl.AsyncInterfaces.dll",
++        "ref/netstandard2.0/Microsoft.Bcl.AsyncInterfaces.dll",
++        "ref/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    },
++    "Microsoft.Bcl.HashCode/1.1.0": {
++      "sha512": "J2G1k+u5unBV+aYcwxo94ip16Rkp65pgWFb0R6zwJipzWNMgvqlWeuI7/+R+e8bob66LnSG+llLJ+z8wI94cHg==",
++      "type": "package",
++      "path": "microsoft.bcl.hashcode/1.1.0",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/net461/Microsoft.Bcl.HashCode.dll",
++        "lib/net461/Microsoft.Bcl.HashCode.xml",
++        "lib/netcoreapp2.1/Microsoft.Bcl.HashCode.dll",
++        "lib/netcoreapp2.1/Microsoft.Bcl.HashCode.xml",
++        "lib/netstandard2.0/Microsoft.Bcl.HashCode.dll",
++        "lib/netstandard2.0/Microsoft.Bcl.HashCode.xml",
++        "lib/netstandard2.1/Microsoft.Bcl.HashCode.dll",
++        "lib/netstandard2.1/Microsoft.Bcl.HashCode.xml",
++        "microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
++        "microsoft.bcl.hashcode.nuspec",
++        "ref/net461/Microsoft.Bcl.HashCode.dll",
++        "ref/netcoreapp2.1/Microsoft.Bcl.HashCode.dll",
++        "ref/netstandard2.0/Microsoft.Bcl.HashCode.dll",
++        "ref/netstandard2.1/Microsoft.Bcl.HashCode.dll",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    },
++    "Microsoft.CSharp/4.7.0": {
++      "sha512": "pTj+D3uJWyN3My70i2Hqo+OXixq3Os2D1nJ2x92FFo6sk8fYS1m1WLNTs0Dc1uPaViH0YvEEwvzddQ7y4rhXmA==",
++      "type": "package",
++      "path": "microsoft.csharp/4.7.0",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/MonoAndroid10/_._",
++        "lib/MonoTouch10/_._",
++        "lib/net45/_._",
++        "lib/netcore50/Microsoft.CSharp.dll",
++        "lib/netcoreapp2.0/_._",
++        "lib/netstandard1.3/Microsoft.CSharp.dll",
++        "lib/netstandard2.0/Microsoft.CSharp.dll",
++        "lib/netstandard2.0/Microsoft.CSharp.xml",
++        "lib/portable-net45+win8+wp8+wpa81/_._",
++        "lib/uap10.0.16299/_._",
++        "lib/win8/_._",
++        "lib/wp80/_._",
++        "lib/wpa81/_._",
++        "lib/xamarinios10/_._",
++        "lib/xamarinmac20/_._",
++        "lib/xamarintvos10/_._",
++        "lib/xamarinwatchos10/_._",
++        "microsoft.csharp.4.7.0.nupkg.sha512",
++        "microsoft.csharp.nuspec",
++        "ref/MonoAndroid10/_._",
++        "ref/MonoTouch10/_._",
++        "ref/net45/_._",
++        "ref/netcore50/Microsoft.CSharp.dll",
++        "ref/netcore50/Microsoft.CSharp.xml",
++        "ref/netcore50/de/Microsoft.CSharp.xml",
++        "ref/netcore50/es/Microsoft.CSharp.xml",
++        "ref/netcore50/fr/Microsoft.CSharp.xml",
++        "ref/netcore50/it/Microsoft.CSharp.xml",
++        "ref/netcore50/ja/Microsoft.CSharp.xml",
++        "ref/netcore50/ko/Microsoft.CSharp.xml",
++        "ref/netcore50/ru/Microsoft.CSharp.xml",
++        "ref/netcore50/zh-hans/Microsoft.CSharp.xml",
++        "ref/netcore50/zh-hant/Microsoft.CSharp.xml",
++        "ref/netcoreapp2.0/_._",
++        "ref/netstandard1.0/Microsoft.CSharp.dll",
++        "ref/netstandard1.0/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/de/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/es/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/fr/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/it/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/ja/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/ko/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/ru/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/zh-hans/Microsoft.CSharp.xml",
++        "ref/netstandard1.0/zh-hant/Microsoft.CSharp.xml",
++        "ref/netstandard2.0/Microsoft.CSharp.dll",
++        "ref/netstandard2.0/Microsoft.CSharp.xml",
++        "ref/portable-net45+win8+wp8+wpa81/_._",
++        "ref/uap10.0.16299/_._",
++        "ref/win8/_._",
++        "ref/wp80/_._",
++        "ref/wpa81/_._",
++        "ref/xamarinios10/_._",
++        "ref/xamarinmac20/_._",
++        "ref/xamarintvos10/_._",
++        "ref/xamarinwatchos10/_._",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    },
++    "Microsoft.EntityFrameworkCore/3.1.9": {
++      "sha512": "u3A2W0BvAuAF2jgW+WX+C+Sh8sMGX5Kl1hdA0gu6A/XSrZQoW/BUP4a/q2n3iitDGndaorqjAKx+Spb9gBto+w==",
++      "type": "package",
++      "path": "microsoft.entityframeworkcore/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll",
++        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.xml",
++        "microsoft.entityframeworkcore.3.1.9.nupkg.sha512",
++        "microsoft.entityframeworkcore.nuspec"
++      ]
++    },
++    "Microsoft.EntityFrameworkCore.Abstractions/3.1.9": {
++      "sha512": "IR6Y4RJVlw0QXdWXjF3Kx9s1QLiicJus+BFBKr43lBtriV20j3yrWMoaZ9W1AUUgnicZXpXVcNfklqtmwb9Sxw==",
++      "type": "package",
++      "path": "microsoft.entityframeworkcore.abstractions/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
++        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
++        "microsoft.entityframeworkcore.abstractions.3.1.9.nupkg.sha512",
++        "microsoft.entityframeworkcore.abstractions.nuspec"
++      ]
++    },
++    "Microsoft.EntityFrameworkCore.Analyzers/3.1.9": {
++      "sha512": "eXGyx/Lb1fiiKtnIStdxGrfBSSQg8oZytE10f1T/2xAx12W9dKB9U9fg05cwNCDC0S2CXILsmZHYaGqCSXVAqQ==",
++      "type": "package",
++      "path": "microsoft.entityframeworkcore.analyzers/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
++        "lib/netstandard2.0/_._",
++        "microsoft.entityframeworkcore.analyzers.3.1.9.nupkg.sha512",
++        "microsoft.entityframeworkcore.analyzers.nuspec"
++      ]
++    },
++    "Microsoft.EntityFrameworkCore.Design/3.1.9": {
++      "sha512": "2zgP7BWcw5nqGQiT4bEtiI6ras+4pvKg5D+tA3AYvjEifzzaWvmRTb3B9nRHpIYJAhPtmWNBVnVXLbu3fS1OYA==",
++      "type": "package",
++      "path": "microsoft.entityframeworkcore.design/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "build/net461/Microsoft.EntityFrameworkCore.Design.props",
++        "build/netcoreapp2.0/Microsoft.EntityFrameworkCore.Design.props",
++        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll",
++        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.xml",
++        "microsoft.entityframeworkcore.design.3.1.9.nupkg.sha512",
++        "microsoft.entityframeworkcore.design.nuspec"
++      ]
++    },
++    "Microsoft.EntityFrameworkCore.Relational/3.1.9": {
++      "sha512": "7fhWuSfrCYlv/hvOX5OhbFJF/G9f8sifqTrJiYnAYLDOvNizwv7t9tFPD8JwaF3zM2S54O5/Vni2NxvwzSaW2w==",
++      "type": "package",
++      "path": "microsoft.entityframeworkcore.relational/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.dll",
++        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Relational.xml",
++        "microsoft.entityframeworkcore.relational.3.1.9.nupkg.sha512",
++        "microsoft.entityframeworkcore.relational.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.Caching.Abstractions/3.1.9": {
++      "sha512": "/2QsPAsUZD4qvftZkUKHRRRryPDXWh606/iNXPLrulwHLMr9JNsKBJWVqylT3qU92nJok5VoqSblkY9mSyxFyg==",
++      "type": "package",
++      "path": "microsoft.extensions.caching.abstractions/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.dll",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Abstractions.xml",
++        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.xml",
++        "microsoft.extensions.caching.abstractions.3.1.9.nupkg.sha512",
++        "microsoft.extensions.caching.abstractions.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.Caching.Memory/3.1.9": {
++      "sha512": "/JrVMVetX/kpJQUIlJ6NLQ3zbF0yyryXpo4+uFCqYIUZzgmWk8DS/zSKcyj1tQ3410+vhDEAPngxC+hg0IlJeg==",
++      "type": "package",
++      "path": "microsoft.extensions.caching.memory/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.dll",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Caching.Memory.xml",
++        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.xml",
++        "microsoft.extensions.caching.memory.3.1.9.nupkg.sha512",
++        "microsoft.extensions.caching.memory.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.Configuration/3.1.9": {
++      "sha512": "lqdkOGNeTMKG981Q7yWGlRiFbIlsRwTlMMiybT+WOzUCFBS/wc25tZgh7Wm/uRoBbWefgvokzmnea7ZjmFedmA==",
++      "type": "package",
++      "path": "microsoft.extensions.configuration/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.xml",
++        "lib/netstandard2.0/Microsoft.Extensions.Configuration.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.Configuration.xml",
++        "microsoft.extensions.configuration.3.1.9.nupkg.sha512",
++        "microsoft.extensions.configuration.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.Configuration.Abstractions/3.1.9": {
++      "sha512": "vOJxPKczaHpXeZFrxARxYwsEulhEouXc5aZGgMdkhV/iEXX9/pfjqKk76rTG+4CsJjHV+G/4eMhvOIaQMHENNA==",
++      "type": "package",
++      "path": "microsoft.extensions.configuration.abstractions/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.xml",
++        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
++        "microsoft.extensions.configuration.abstractions.3.1.9.nupkg.sha512",
++        "microsoft.extensions.configuration.abstractions.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.Configuration.Binder/3.1.9": {
++      "sha512": "BG6HcT7tARYakftqfQu+cLksgIWG1NdxMY+igI12hdZrUK+WjS973NiRyuao/U9yyTeM9NPwRnC61hCmG3G3jg==",
++      "type": "package",
++      "path": "microsoft.extensions.configuration.binder/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.xml",
++        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
++        "microsoft.extensions.configuration.binder.3.1.9.nupkg.sha512",
++        "microsoft.extensions.configuration.binder.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.DependencyInjection/3.1.9": {
++      "sha512": "ORqfrAACcvTInie1oGola5uky344/PiNfgayTPuZWV4WnSfIQZJQm/ZLpGshJE3h7TqwYaYElGazK/yaM2bFLA==",
++      "type": "package",
++      "path": "microsoft.extensions.dependencyinjection/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/net461/Microsoft.Extensions.DependencyInjection.dll",
++        "lib/net461/Microsoft.Extensions.DependencyInjection.xml",
++        "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll",
++        "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.xml",
++        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.xml",
++        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll",
++        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.xml",
++        "microsoft.extensions.dependencyinjection.3.1.9.nupkg.sha512",
++        "microsoft.extensions.dependencyinjection.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.9": {
++      "sha512": "8PkcaPwiTPOhqshoY4+rQUbz86X6YpLDLUqXOezh7L2A3pgpBmeBBByYIffofBlvQxDdQ0zB2DkWjbZWyCxRWg==",
++      "type": "package",
++      "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
++        "microsoft.extensions.dependencyinjection.abstractions.3.1.9.nupkg.sha512",
++        "microsoft.extensions.dependencyinjection.abstractions.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.Logging/3.1.9": {
++      "sha512": "+V3i0jCQCO6IIOf6e+fL0SqrZd2x/Krug9EEL1JHa9R03RsbEpltCtjVY5hxedyuyuQKwvLoR12sCfu/9XEUAw==",
++      "type": "package",
++      "path": "microsoft.extensions.logging/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.dll",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Logging.xml",
++        "lib/netstandard2.0/Microsoft.Extensions.Logging.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.Logging.xml",
++        "microsoft.extensions.logging.3.1.9.nupkg.sha512",
++        "microsoft.extensions.logging.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.Logging.Abstractions/3.1.9": {
++      "sha512": "W5fbF8qVR9SMVVJqDQLIR7meWbev6Pu/lbrm7LDNr4Sp7HOotr4k2UULTdFSXOi5aoDdkQZpWnq0ZSpjrR3tjg==",
++      "type": "package",
++      "path": "microsoft.extensions.logging.abstractions/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
++        "microsoft.extensions.logging.abstractions.3.1.9.nupkg.sha512",
++        "microsoft.extensions.logging.abstractions.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.Options/3.1.9": {
++      "sha512": "EIb3G1DL+Rl9MvJR7LjI1wCy2nfTN4y8MflbOftn1HLYQBj/Rwl8kUbGTrSFE01c99Wm4ETjWVsjqKcpFvhPng==",
++      "type": "package",
++      "path": "microsoft.extensions.options/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Options.xml",
++        "lib/netstandard2.0/Microsoft.Extensions.Options.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
++        "microsoft.extensions.options.3.1.9.nupkg.sha512",
++        "microsoft.extensions.options.nuspec"
++      ]
++    },
++    "Microsoft.Extensions.Primitives/3.1.9": {
++      "sha512": "IrHecH0eGG7/XoeEtv++oLg/sJHRNyeCqlA9RhAo6ig4GpOTjtDr32sBMYuuLtUq8ALahneWkrOzoBAwJ4L4iA==",
++      "type": "package",
++      "path": "microsoft.extensions.primitives/3.1.9",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll",
++        "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.xml",
++        "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
++        "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
++        "microsoft.extensions.primitives.3.1.9.nupkg.sha512",
++        "microsoft.extensions.primitives.nuspec"
++      ]
++    },
++    "Npgsql/4.1.3.1": {
++      "sha512": "354pl/Picmt5/AIrm8urFwtxfK4n4NbmfBnLA9yvP8VtILSQF3/sFo3+lGuz+q4iyD18QeNFy0NMNBzsocFVlw==",
++      "type": "package",
++      "path": "npgsql/4.1.3.1",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "lib/net461/Npgsql.dll",
++        "lib/net461/Npgsql.pdb",
++        "lib/net461/Npgsql.xml",
++        "lib/netcoreapp3.0/Npgsql.dll",
++        "lib/netcoreapp3.0/Npgsql.pdb",
++        "lib/netcoreapp3.0/Npgsql.xml",
++        "lib/netstandard2.0/Npgsql.dll",
++        "lib/netstandard2.0/Npgsql.pdb",
++        "lib/netstandard2.0/Npgsql.xml",
++        "lib/netstandard2.1/Npgsql.dll",
++        "lib/netstandard2.1/Npgsql.pdb",
++        "lib/netstandard2.1/Npgsql.xml",
++        "npgsql.4.1.3.1.nupkg.sha512",
++        "npgsql.nuspec",
++        "postgresql.png"
++      ]
++    },
++    "Npgsql.EntityFrameworkCore.PostgreSQL/3.1.4": {
++      "sha512": "T+BIWO+ceje5d52/sOwwqaU/F4Rm2jAWx5qA3+pUGbzY/ZXG0QbHQsyjyg0k8aef6JTq8FRk3FtRWkocsa1QWQ==",
++      "type": "package",
++      "path": "npgsql.entityframeworkcore.postgresql/3.1.4",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
++        "npgsql.entityframeworkcore.postgresql.3.1.4.nupkg.sha512",
++        "npgsql.entityframeworkcore.postgresql.nuspec",
++        "postgresql.png"
++      ]
++    },
++    "System.Collections.Immutable/1.7.1": {
++      "sha512": "B43Zsz5EfMwyEbnObwRxW5u85fzJma3lrDeGcSAV1qkhSRTNY5uXAByTn9h9ddNdhM+4/YoLc/CI43umjwIl9Q==",
++      "type": "package",
++      "path": "system.collections.immutable/1.7.1",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/net461/System.Collections.Immutable.dll",
++        "lib/net461/System.Collections.Immutable.xml",
++        "lib/netstandard1.0/System.Collections.Immutable.dll",
++        "lib/netstandard1.0/System.Collections.Immutable.xml",
++        "lib/netstandard1.3/System.Collections.Immutable.dll",
++        "lib/netstandard1.3/System.Collections.Immutable.xml",
++        "lib/netstandard2.0/System.Collections.Immutable.dll",
++        "lib/netstandard2.0/System.Collections.Immutable.xml",
++        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.dll",
++        "lib/portable-net45+win8+wp8+wpa81/System.Collections.Immutable.xml",
++        "system.collections.immutable.1.7.1.nupkg.sha512",
++        "system.collections.immutable.nuspec",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    },
++    "System.ComponentModel.Annotations/4.7.0": {
++      "sha512": "0YFqjhp/mYkDGpU0Ye1GjE53HMp9UVfGN7seGpAMttAC0C40v5gw598jCgpbBLMmCo0E5YRLBv5Z2doypO49ZQ==",
++      "type": "package",
++      "path": "system.componentmodel.annotations/4.7.0",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/MonoAndroid10/_._",
++        "lib/MonoTouch10/_._",
++        "lib/net45/_._",
++        "lib/net461/System.ComponentModel.Annotations.dll",
++        "lib/netcore50/System.ComponentModel.Annotations.dll",
++        "lib/netstandard1.4/System.ComponentModel.Annotations.dll",
++        "lib/netstandard2.0/System.ComponentModel.Annotations.dll",
++        "lib/netstandard2.1/System.ComponentModel.Annotations.dll",
++        "lib/netstandard2.1/System.ComponentModel.Annotations.xml",
++        "lib/portable-net45+win8/_._",
++        "lib/win8/_._",
++        "lib/xamarinios10/_._",
++        "lib/xamarinmac20/_._",
++        "lib/xamarintvos10/_._",
++        "lib/xamarinwatchos10/_._",
++        "ref/MonoAndroid10/_._",
++        "ref/MonoTouch10/_._",
++        "ref/net45/_._",
++        "ref/net461/System.ComponentModel.Annotations.dll",
++        "ref/net461/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/System.ComponentModel.Annotations.dll",
++        "ref/netcore50/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/de/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/es/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/fr/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/it/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/ja/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/ko/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/ru/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/zh-hans/System.ComponentModel.Annotations.xml",
++        "ref/netcore50/zh-hant/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/System.ComponentModel.Annotations.dll",
++        "ref/netstandard1.1/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/de/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/es/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/fr/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/it/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/ja/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/ko/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/ru/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/zh-hans/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.1/zh-hant/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/System.ComponentModel.Annotations.dll",
++        "ref/netstandard1.3/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/de/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/es/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/fr/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/it/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/ja/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/ko/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/ru/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/zh-hans/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.3/zh-hant/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/System.ComponentModel.Annotations.dll",
++        "ref/netstandard1.4/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/de/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/es/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/fr/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/it/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/ja/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/ko/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/ru/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/zh-hans/System.ComponentModel.Annotations.xml",
++        "ref/netstandard1.4/zh-hant/System.ComponentModel.Annotations.xml",
++        "ref/netstandard2.0/System.ComponentModel.Annotations.dll",
++        "ref/netstandard2.0/System.ComponentModel.Annotations.xml",
++        "ref/netstandard2.1/System.ComponentModel.Annotations.dll",
++        "ref/netstandard2.1/System.ComponentModel.Annotations.xml",
++        "ref/portable-net45+win8/_._",
++        "ref/win8/_._",
++        "ref/xamarinios10/_._",
++        "ref/xamarinmac20/_._",
++        "ref/xamarintvos10/_._",
++        "ref/xamarinwatchos10/_._",
++        "system.componentmodel.annotations.4.7.0.nupkg.sha512",
++        "system.componentmodel.annotations.nuspec",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    },
++    "System.Diagnostics.DiagnosticSource/4.7.1": {
++      "sha512": "j81Lovt90PDAq8kLpaJfJKV/rWdWuEk6jfV+MBkee33vzYLEUsy4gXK8laa9V2nZlLM9VM9yA/OOQxxPEJKAMw==",
++      "type": "package",
++      "path": "system.diagnostics.diagnosticsource/4.7.1",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "Icon.png",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/net45/System.Diagnostics.DiagnosticSource.dll",
++        "lib/net45/System.Diagnostics.DiagnosticSource.xml",
++        "lib/net46/System.Diagnostics.DiagnosticSource.dll",
++        "lib/net46/System.Diagnostics.DiagnosticSource.xml",
++        "lib/netstandard1.1/System.Diagnostics.DiagnosticSource.dll",
++        "lib/netstandard1.1/System.Diagnostics.DiagnosticSource.xml",
++        "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll",
++        "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.xml",
++        "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.dll",
++        "lib/portable-net45+win8+wpa81/System.Diagnostics.DiagnosticSource.xml",
++        "system.diagnostics.diagnosticsource.4.7.1.nupkg.sha512",
++        "system.diagnostics.diagnosticsource.nuspec",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    },
++    "System.Reflection.Emit/4.7.0": {
++      "sha512": "VR4kk8XLKebQ4MZuKuIni/7oh+QGFmZW3qORd1GvBq/8026OpW501SzT/oypwiQl4TvT8ErnReh/NzY9u+C6wQ==",
++      "type": "package",
++      "path": "system.reflection.emit/4.7.0",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/MonoAndroid10/_._",
++        "lib/MonoTouch10/_._",
++        "lib/net45/_._",
++        "lib/netcore50/System.Reflection.Emit.dll",
++        "lib/netcoreapp2.0/_._",
++        "lib/netstandard1.1/System.Reflection.Emit.dll",
++        "lib/netstandard1.1/System.Reflection.Emit.xml",
++        "lib/netstandard1.3/System.Reflection.Emit.dll",
++        "lib/netstandard2.0/System.Reflection.Emit.dll",
++        "lib/netstandard2.0/System.Reflection.Emit.xml",
++        "lib/netstandard2.1/_._",
++        "lib/xamarinios10/_._",
++        "lib/xamarinmac20/_._",
++        "lib/xamarintvos10/_._",
++        "lib/xamarinwatchos10/_._",
++        "ref/MonoAndroid10/_._",
++        "ref/MonoTouch10/_._",
++        "ref/net45/_._",
++        "ref/netcoreapp2.0/_._",
++        "ref/netstandard1.1/System.Reflection.Emit.dll",
++        "ref/netstandard1.1/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/de/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/es/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/fr/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/it/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/ja/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/ko/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/ru/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/zh-hans/System.Reflection.Emit.xml",
++        "ref/netstandard1.1/zh-hant/System.Reflection.Emit.xml",
++        "ref/netstandard2.0/System.Reflection.Emit.dll",
++        "ref/netstandard2.0/System.Reflection.Emit.xml",
++        "ref/netstandard2.1/_._",
++        "ref/xamarinios10/_._",
++        "ref/xamarinmac20/_._",
++        "ref/xamarintvos10/_._",
++        "ref/xamarinwatchos10/_._",
++        "runtimes/aot/lib/netcore50/System.Reflection.Emit.dll",
++        "runtimes/aot/lib/netcore50/System.Reflection.Emit.xml",
++        "system.reflection.emit.4.7.0.nupkg.sha512",
++        "system.reflection.emit.nuspec",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    },
++    "System.Runtime.CompilerServices.Unsafe/4.6.0": {
++      "sha512": "HxozeSlipUK7dAroTYwIcGwKDeOVpQnJlpVaOkBz7CM4TsE5b/tKlQBZecTjh6FzcSbxndYaxxpsBMz+wMJeyw==",
++      "type": "package",
++      "path": "system.runtime.compilerservices.unsafe/4.6.0",
++      "files": [
++        ".nupkg.metadata",
++        ".signature.p7s",
++        "LICENSE.TXT",
++        "THIRD-PARTY-NOTICES.TXT",
++        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
++        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
++        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
++        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
++        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
++        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
++        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
++        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
++        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
++        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
++        "system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512",
++        "system.runtime.compilerservices.unsafe.nuspec",
++        "useSharedDesignerContext.txt",
++        "version.txt"
++      ]
++    },
++    "Rpk_back.Domain/1.0.0": {
++      "type": "project",
++      "path": "../Rpk_back.Domain/Rpk_back.Domain.csproj",
++      "msbuildProject": "../Rpk_back.Domain/Rpk_back.Domain.csproj"
++    }
++  },
+   "projectFileDependencyGroups": {
+-    ".NETCoreApp,Version=v3.1": []
++    ".NETCoreApp,Version=v3.1": [
++      "Microsoft.EntityFrameworkCore >= 3.1.9",
++      "Microsoft.EntityFrameworkCore.Design >= 3.1.9",
++      "Npgsql.EntityFrameworkCore.PostgreSQL >= 3.1.4",
++      "Rpk_back.Domain >= 1.0.0"
++    ]
+   },
+   "packageFolders": {
+-    "C:\\Users\\Student235046\\.nuget\\packages\\": {},
+-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
++    "/home/mikolaj/.nuget/packages/": {}
+   },
+   "project": {
+     "version": "1.0.0",
+     "restore": {
+-      "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj",
++      "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj",
+       "projectName": "Rpk_back.Application",
+-      "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj",
+-      "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+-      "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\obj\\",
++      "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj",
++      "packagesPath": "/home/mikolaj/.nuget/packages/",
++      "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/",
+       "projectStyle": "PackageReference",
+-      "fallbackFolders": [
+-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+-      ],
+       "configFilePaths": [
+-        "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
++        "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+       ],
+       "originalTargetFrameworks": [
+         "netcoreapp3.1"
+       ],
+       "sources": {
+-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+         "https://api.nuget.org/v3/index.json": {}
+       },
+       "frameworks": {
+         "netcoreapp3.1": {
+-          "projectReferences": {}
++          "projectReferences": {
++            "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj": {
++              "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj"
++            }
++          }
+         }
+       },
+       "warningProperties": {
+@@ -47,6 +1021,22 @@
+     },
+     "frameworks": {
+       "netcoreapp3.1": {
++        "dependencies": {
++          "Microsoft.EntityFrameworkCore": {
++            "target": "Package",
++            "version": "[3.1.9, )"
++          },
++          "Microsoft.EntityFrameworkCore.Design": {
++            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
++            "suppressParent": "All",
++            "target": "Package",
++            "version": "[3.1.9, )"
++          },
++          "Npgsql.EntityFrameworkCore.PostgreSQL": {
++            "target": "Package",
++            "version": "[3.1.4, )"
++          }
++        },
+         "imports": [
+           "net461",
+           "net462",
+@@ -62,7 +1052,7 @@
+             "privateAssets": "all"
+           }
+         },
+-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
++        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+       }
+     }
+   }

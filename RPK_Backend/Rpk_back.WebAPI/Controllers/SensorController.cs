@@ -5,8 +5,8 @@ using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Rpk_back.Application.Interfaces;
 using Rpk_back.Application.Service;
-using Rpk_back.Application.Service.Interface;
 using Rpk_back.Domain.Enums;
 
 namespace Rpk_back.WebAPI.Controllers

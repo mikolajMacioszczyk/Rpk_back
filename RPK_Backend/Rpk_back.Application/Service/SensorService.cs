@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
-using Rpk_back.Application.Repository.Interface;
-using Rpk_back.Application.Service.Interface;
+using Rpk_back.Application.Interfaces;
 using Rpk_back.Domain.Dtos;
 using Rpk_back.Domain.Enums;
 
-namespace Rpk_back.Application.Service.Implementation
+namespace Rpk_back.Application.Service
 {
     public class SensorService : ISensorService
     {

@@ -8,6 +8,7 @@ namespace Rpk_back.Domain.Models
     public class Sensor
     {
         public Guid SensorId { get; set; }
+        public string NodeId { get; set; }
         public DateTime MeasurementTime { get; set; }
         public float SensorValue { get; set; }
         public SensorLocalizationEnum Localization { get; set; }

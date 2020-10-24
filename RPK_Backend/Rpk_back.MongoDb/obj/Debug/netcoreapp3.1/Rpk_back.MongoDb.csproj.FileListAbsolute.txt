@@ -1,0 +1,9 @@
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/bin/Debug/netcoreapp3.1/Rpk_back.MongoDb.deps.json
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/bin/Debug/netcoreapp3.1/Rpk_back.MongoDb.dll
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/bin/Debug/netcoreapp3.1/Rpk_back.MongoDb.pdb
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.csprojAssemblyReference.cache
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.AssemblyInfoInputs.cache
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.AssemblyInfo.cs
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.csproj.CoreCompileInputs.cache
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.dll
+/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.MongoDb/obj/Debug/netcoreapp3.1/Rpk_back.MongoDb.pdb

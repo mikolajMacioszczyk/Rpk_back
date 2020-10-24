@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Rpk_back.Application.Db;
+using Rpk_back.Application.Repository.Interface;
 using Rpk_back.Domain.Enums;
 using Rpk_back.Domain.Models;
 
-namespace Rpk_back.Application.Repository
+namespace Rpk_back.Application.Repository.Implementation
 {
     public class SensorRepository : ISensorRepository
     {

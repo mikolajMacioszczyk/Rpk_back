@@ -1,0 +1,70 @@
+Index: Rpk_back.WebAPI/obj/rider.project.restore.info
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>16035565869187983
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.WebAPI/obj/rider.project.restore.info	(revision 17289736ae061e38a0771c08934f5197a2bd1ad4)
++++ Rpk_back.WebAPI/obj/rider.project.restore.info	(date 1603557296592)
+@@ -1,1 +1,1 @@
+-16035565869187983
+\ No newline at end of file
++16035572965727398
+\ No newline at end of file
+Index: Rpk_back.Application/obj/rider.project.restore.info
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>16035565869227983
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Application/obj/rider.project.restore.info	(revision 17289736ae061e38a0771c08934f5197a2bd1ad4)
++++ Rpk_back.Application/obj/rider.project.restore.info	(date 1603557296592)
+@@ -1,1 +1,1 @@
+-16035565869227983
+\ No newline at end of file
++16035572965727398
+\ No newline at end of file
+Index: Rpk_back.MongoDb/obj/rider.project.restore.info
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>16035565868907980
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.MongoDb/obj/rider.project.restore.info	(revision 17289736ae061e38a0771c08934f5197a2bd1ad4)
++++ Rpk_back.MongoDb/obj/rider.project.restore.info	(date 1603557296592)
+@@ -1,1 +1,1 @@
+-16035565868907980
+\ No newline at end of file
++16035572965687397
+\ No newline at end of file
+Index: Rpk_back.Domain/obj/rider.project.restore.info
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>16035565869187983
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.Domain/obj/rider.project.restore.info	(revision 17289736ae061e38a0771c08934f5197a2bd1ad4)
++++ Rpk_back.Domain/obj/rider.project.restore.info	(date 1603557296592)
+@@ -1,1 +1,1 @@
+-16035565869187983
+\ No newline at end of file
++16035572965727398
+\ No newline at end of file
+Index: Rpk_back.PostgresSQL/obj/rider.project.restore.info
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>16035565868907980
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Rpk_back.PostgresSQL/obj/rider.project.restore.info	(revision 17289736ae061e38a0771c08934f5197a2bd1ad4)
++++ Rpk_back.PostgresSQL/obj/rider.project.restore.info	(date 1603557296592)
+@@ -1,1 +1,1 @@
+-16035565868907980
+\ No newline at end of file
++16035572965687397
+\ No newline at end of file

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Rpk_back.Domain.Enums;
 using Rpk_back.Domain.Models;
 
-namespace Rpk_back.Application.Repository
+namespace Rpk_back.Application.Repository.Interface
 {
     public interface ISensorRepository
     {

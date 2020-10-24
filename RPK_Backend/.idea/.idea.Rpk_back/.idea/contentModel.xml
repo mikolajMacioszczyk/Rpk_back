@@ -9,10 +9,22 @@
           <e p="Context.cs" t="Include" />
         </e>
         <e p="Repository" t="Include">
-          <e p="ISensorRepository.cs" t="Include" />
-          <e p="SensorRepository.cs" t="Include" />
+          <e p="Implementation" t="Include">
+            <e p="SensorRepository.cs" t="Include" />
+          </e>
+          <e p="Interface" t="Include">
+            <e p="ISensorRepository.cs" t="Include" />
+          </e>
         </e>
         <e p="Rpk_back.Application.csproj" t="IncludeRecursive" />
+        <e p="Service" t="Include">
+          <e p="Implementation" t="Include">
+            <e p="SensorService.cs" t="Include" />
+          </e>
+          <e p="Interface" t="Include">
+            <e p="ISensorService.cs" t="Include" />
+          </e>
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -72,7 +84,9 @@
         </e>
       </e>
       <e p="Rpk_back.WebAPI" t="IncludeRecursive">
-        <e p="Controllers" t="Include" />
+        <e p="Controllers" t="Include">
+          <e p="SensorController.cs" t="Include" />
+        </e>
         <e p="Extensions" t="Include">
           <e p="ServiceExtensions.cs" t="Include" />
         </e>

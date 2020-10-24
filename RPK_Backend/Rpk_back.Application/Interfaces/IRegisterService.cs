@@ -8,5 +8,7 @@ namespace Rpk_back.Application.Interfaces
     public interface IRegisterService
     {
         void RegisteredNode(RegisterNode node);
+
+        List<RegisterNode> GetRegisterNodes();
     }
 }

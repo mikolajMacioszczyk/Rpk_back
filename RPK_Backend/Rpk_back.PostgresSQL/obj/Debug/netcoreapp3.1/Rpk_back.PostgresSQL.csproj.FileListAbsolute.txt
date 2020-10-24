@@ -10,7 +10,6 @@
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.PostgresSQL\bin\Debug\netcoreapp3.1\Rpk_back.PostgresSQL.deps.json
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.PostgresSQL\bin\Debug\netcoreapp3.1\Rpk_back.PostgresSQL.dll
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.PostgresSQL\bin\Debug\netcoreapp3.1\Rpk_back.PostgresSQL.pdb
-D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.PostgresSQL\obj\Debug\netcoreapp3.1\Rpk_back.PostgresSQL.csprojAssemblyReference.cache
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.PostgresSQL\obj\Debug\netcoreapp3.1\Rpk_back.PostgresSQL.AssemblyInfoInputs.cache
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.PostgresSQL\obj\Debug\netcoreapp3.1\Rpk_back.PostgresSQL.AssemblyInfo.cs
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.PostgresSQL\obj\Debug\netcoreapp3.1\Rpk_back.PostgresSQL.dll

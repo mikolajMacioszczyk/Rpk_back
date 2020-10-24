@@ -1,39 +1,31 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Caching.Memory;
 using Rpk_back.Application.Interfaces;
+using Rpk_back.Domain.Models;
 
 namespace Rpk_back.Application.MemoryStore
 {
     public class ApplicationMemoryStore : IApplicationMemoryStore
     {
-        private IMemoryCache _cache;
+        private readonly IMemoryCache _cache;
+        private readonly IRegisterService _registerService;
 
-        public ApplicationMemoryStore(IMemoryCache cache)
+        public ApplicationMemoryStore(IMemoryCache cache,
+            IRegisterService registerService)
         {
             _cache = cache;
+            _registerService = registerService;
         }
 
-        public T Get<T>(string key)
+        public List<RegisterNode> GetCachedRegisteredNodes()
         {
-            return _cache.Get<T>(key);
-        }
-
-        public void Set<T>(string itemKey, T itemValue, DateTime expirationDate)
-        {
-            _cache.Set(itemKey, itemValue, expirationDate);
-        }
-
-        public bool Contains(string key)
-        {
-            object result = null;
-            _cache.TryGetValue(key, out result );
-            return result != null;
-        }
-
-        public void Remove(string key)
-        {
-            _cache.Remove(key);
+            return _cache.GetOrCreate(nameof(GetCachedRegisteredNodes),  entry =>
+            {
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1);
+                return _registerService.GetRegisterNodes();
+            });
         }
     }
 }

@@ -1,13 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Rpk_back.Domain.Models;
 
 namespace Rpk_back.Application.Interfaces
 {
-    interface IApplicationMemoryStore
+    public interface IApplicationMemoryStore
     {
-        T Get<T>(string key);
-        void Set<T>(string itemKey, T itemValue, DateTime expirationDate);
-        bool Contains(string key);
-        void Remove(string key);
+        List<RegisterNode> GetCachedRegisteredNodes();
     }
 }

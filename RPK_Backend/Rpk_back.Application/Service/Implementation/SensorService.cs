@@ -5,6 +5,7 @@ using AutoMapper;
 using Rpk_back.Application.Repository.Interface;
 using Rpk_back.Application.Service.Interface;
 using Rpk_back.Domain.Dtos;
+using Rpk_back.Domain.Enums;
 
 namespace Rpk_back.Application.Service.Implementation
 {
@@ -19,24 +20,25 @@ namespace Rpk_back.Application.Service.Implementation
             _mapper = mapper;
         }
 
-        public async Task<SensorReadDto> GetByIdAndTime(Guid sensorId, DateTime time)
+        public async Task<SensorReadDto> GetByIdAndTime(Guid sensorId, DateTime startTime, DateTime endTime)
         {
-            return await _repository.GetBySensorId(sensorId, time);
+            return _mapper.Map<SensorReadDto>(await _repository.GetBySensorId(sensorId, startTime, endTime));
         }
 
-        public Task<IEnumerable<SensorReadDto>> GetGroupByIdAndTime(Guid groupId, DateTime time)
+        public async Task<IEnumerable<SensorReadDto>> GetGroupByIdAndTime(Guid groupId, DateTime startTime, DateTime endTime)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<IEnumerable<SensorReadDto>>(await _repository.GetByIdGroupAndTime(groupId, startTime, endTime));
+
         }
 
-        public Task<IEnumerable<SensorReadDto>> GetByLocalizationAndTIme(Guid groupId, DateTime time)
+        public async Task<IEnumerable<SensorReadDto>> GetByLocalizationAndTIme(SensorLocalizationEnum localization, DateTime startTime, DateTime endTime)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<IEnumerable<SensorReadDto>>(await _repository.GetByLocalizationAndTime(localization, startTime, endTime));
         }
 
-        public Task<IEnumerable<SensorReadDto>> GetByTypeAndTIme(Guid groupId, DateTime time)
+        public async Task<IEnumerable<SensorReadDto>> GetByTypeAndTIme(SensorTypeEnum sensorType, DateTime startTime, DateTime endTime)
         {
-            throw new NotImplementedException();
+            return _mapper.Map<IEnumerable<SensorReadDto>>(await _repository.GetByTypeAndTime(sensorType, startTime, endTime));
         }
     }
 }

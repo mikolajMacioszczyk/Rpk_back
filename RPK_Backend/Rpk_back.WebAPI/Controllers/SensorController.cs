@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rpk_back.Application.Service;
 using Rpk_back.Application.Service.Interface;
+using Rpk_back.Domain.Enums;
 
 namespace Rpk_back.WebAPI.Controllers
 {
@@ -22,21 +23,47 @@ namespace Rpk_back.WebAPI.Controllers
         }
 
         [HttpGet("{guid}")]
-        public async Task<IActionResult> GetSensorById([FromRoute] Guid guid)
+        public async Task<IActionResult> GetSensorById([FromRoute] Guid guid, [FromQuery] DateTime dateStart, DateTime dateEnd)
         {
+            if (dateStart > dateEnd)
+                return BadRequest();
 
+            var sensor = await _sensorService.GetByIdAndTime(guid, dateStart, dateEnd);
+
+           return Ok(sensor);
         }
 
-        [HttpGet("{groupGuid}")]
-        public async Task<IActionResult> GetSensorsByGroupId([FromRoute] Guid groupGuid)
+        [HttpGet("groupById/{groupGuid}")]
+        public async Task<IActionResult> GetSensorsByGroupId([FromRoute] Guid groupGuid, [FromQuery] DateTime dateStart, DateTime dateEnd)
         {
+            if (dateStart > dateEnd)
+                return BadRequest();
 
+            var sensorGroup = await _sensorService.GetGroupByIdAndTime(groupGuid, dateStart, dateEnd);
+
+            return Ok(sensorGroup);
         }
 
-        [HttpGet("{localization}")]
-        public async Task<IActionResult> GetSensorsByLocalization([FromQuery] string localization)
+        [HttpGet("groupByLocalization/{localization}")]
+        public async Task<IActionResult> GetSensorsByLocalization([FromRoute] string localization, [FromQuery] DateTime dateStart, DateTime dateEnd)
         {
+            if (string.IsNullOrEmpty(localization) || dateStart > dateEnd)
+                return BadRequest();
 
+            var sensor = await _sensorService.GetByLocalizationAndTIme(Enum.Parse<SensorLocalizationEnum>(localization), dateStart, dateEnd);
+
+            return Ok(sensor);
+        }
+
+        [HttpGet("groupByType/{type}")]
+        public async Task<IActionResult> GetSensorsByType([FromRoute] string type, [FromQuery] DateTime dateStart, DateTime dateEnd)
+        {
+            if (string.IsNullOrEmpty(type) || dateStart > dateEnd)
+                return BadRequest();
+
+            var sensor = await _sensorService.GetByTypeAndTIme(Enum.Parse<SensorTypeEnum>(type), dateStart, dateEnd);
+
+            return Ok(sensor);
         }
     }
 }

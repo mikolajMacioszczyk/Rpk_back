@@ -1,32 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj": {}
+    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj": {}
   },
   "projects": {
-    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj": {
+    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj",
+        "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj",
         "projectName": "Rpk_back.Application",
-        "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/Rpk_back.Application.csproj",
-        "packagesPath": "/home/mikolaj/.nuget/packages/",
-        "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Application/obj/",
+        "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\Rpk_back.Application.csproj",
+        "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+        "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj": {
-                "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj"
+              "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj": {
+                "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj"
               }
             }
           }
@@ -70,26 +75,31 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj": {
+    "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj",
+        "projectUniqueName": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj",
         "projectName": "Rpk_back.Domain",
-        "projectPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/Rpk_back.Domain.csproj",
-        "packagesPath": "/home/mikolaj/.nuget/packages/",
-        "outputPath": "/home/mikolaj/RiderProjects/Rpk_back/RPK_Backend/Rpk_back.Domain/obj/",
+        "projectPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\Rpk_back.Domain.csproj",
+        "packagesPath": "C:\\Users\\Student235046\\.nuget\\packages\\",
+        "outputPath": "D:\\Repozytoria\\Hackaton_RPK\\Backend\\RPK_Backend\\Rpk_back.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/mikolaj/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Student235046\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -130,7 +140,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

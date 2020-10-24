@@ -25,10 +25,9 @@ namespace Rpk_back.Application.Repository
                 .Where(s => s.MeasurementTime >= startTimer && s.MeasurementTime <= endTime).ToListAsync();
         }
 
-        public async Task<Sensor> GetBySensorId(Guid sensorId, DateTime startTimer, DateTime endTime)
+        public async Task<Sensor> GetBySensorId(Guid sensorId)
         {
-            return await _db.SensorItems.Where(s => s.SensorId == sensorId)
-                .Where(s => s.MeasurementTime >= startTimer && s.MeasurementTime <= endTime).FirstOrDefaultAsync();
+            return await _db.SensorItems.Where(s => s.SensorId == sensorId).FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<Sensor>> GetByTypeAndTime(SensorTypeEnum sensorType, DateTime startTimer, DateTime endTime)

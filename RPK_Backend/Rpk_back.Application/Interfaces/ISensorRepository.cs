@@ -9,7 +9,7 @@ namespace Rpk_back.Application.Interfaces
     public interface ISensorRepository
     {
         Task<IEnumerable<Sensor>> GetByIdGroupAndTime(Guid groupId, DateTime startTimer, DateTime endTime);
-        Task<Sensor> GetBySensorId(Guid sensorId, DateTime startTimer, DateTime endTime);
+        Task<Sensor> GetBySensorId(Guid sensorId);
         Task<IEnumerable<Sensor>> GetByTypeAndTime(SensorTypeEnum sensorType, DateTime startTimer, DateTime endTime);
         Task<IEnumerable<Sensor>> GetByLocalizationAndTime(SensorLocalizationEnum localization, DateTime startTimer, DateTime endTime);
         Task<Sensor> CreateSensor(Sensor created);

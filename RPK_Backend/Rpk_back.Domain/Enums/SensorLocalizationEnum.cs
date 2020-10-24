@@ -6,10 +6,10 @@ namespace Rpk_back.Domain.Enums
 {
     public enum SensorLocalizationEnum
     {
-        Outside,
-        Inside,
-        GroundFloor,
-        FirstFloor,
-        SecondFloor
+        Outside = 0,
+        Inside = 1 ,
+        GroundFloor = 2,
+        FirstFloor = 3,
+        SecondFloor = 4
     }
 }

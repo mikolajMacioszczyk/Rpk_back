@@ -6,7 +6,7 @@ namespace Rpk_back.Domain.Enums
 {
     public enum SensorTypeEnum
     {
-        Temperature,
-        Pressure
+        Temperature = 0,
+        Pressure = 1
     }
 }

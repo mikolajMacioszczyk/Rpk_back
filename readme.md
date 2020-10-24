@@ -1,3 +1,3 @@
 # Readme
 
-Backend for RPK Team, Hackatonm 2020
+Backend for RPK Team, Hackaton 2020

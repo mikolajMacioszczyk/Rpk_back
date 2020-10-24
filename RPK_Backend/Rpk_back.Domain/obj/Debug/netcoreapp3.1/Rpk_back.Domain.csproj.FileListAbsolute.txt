@@ -14,3 +14,4 @@ D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Domain\obj\Debug\netcor
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Domain\obj\Debug\netcoreapp3.1\Rpk_back.Domain.AssemblyInfo.cs
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Domain\obj\Debug\netcoreapp3.1\Rpk_back.Domain.dll
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Domain\obj\Debug\netcoreapp3.1\Rpk_back.Domain.pdb
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.Domain\obj\Debug\netcoreapp3.1\Rpk_back.Domain.csprojAssemblyReference.cache

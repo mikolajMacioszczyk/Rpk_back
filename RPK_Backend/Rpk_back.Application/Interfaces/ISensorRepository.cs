@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Rpk_back.Domain.Dtos;
 using Rpk_back.Domain.Enums;
 using Rpk_back.Domain.Models;
 

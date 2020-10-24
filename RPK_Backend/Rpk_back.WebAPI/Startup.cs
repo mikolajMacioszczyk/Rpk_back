@@ -12,7 +12,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Rpk_back.Application.Db;
+using Rpk_back.Domain.Models;
 using Rpk_back.Domain.Profiles;
+using Rpk_back.RabbitMQ;
+using Rpk_back.RabbitMQ.Client;
+using Rpk_back.RabbitMQ.Interfaces;
 using Rpk_back.WebAPI.Extensions;
 
 namespace Rpk_back.WebAPI
@@ -29,16 +33,11 @@ namespace Rpk_back.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-<<<<<<< HEAD
-            services.AddMemoryCache();
-            services.AddAutoMapper(typeof(Startup));
-=======
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new SensorConfiguration());
             });
             services.AddSingleton(mapperConfig.CreateMapper());
->>>>>>> master
 
             services.AddDbContext<Context>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("Rpk_back.WebAPI")));
@@ -50,6 +49,11 @@ namespace Rpk_back.WebAPI
             services.AddControllers();
 
             services.RegisterRepositoriesAndServices();
+
+            services.Configure<QueueConfig>(Configuration.GetSection("QueueConfig").Bind);
+
+            services.AddSingleton<IDataReceiver, DataReceiver>();
+            services.AddSingleton<IRunClient, RunClient>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

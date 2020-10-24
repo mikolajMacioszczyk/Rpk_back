@@ -166,3 +166,9 @@ D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcor
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\Rpk_back.WebAPI.csproj.CopyComplete
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\Rpk_back.WebAPI.dll
 D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\obj\Debug\netcoreapp3.1\Rpk_back.WebAPI.pdb
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\bin\Debug\netcoreapp3.1\Rpk_back.RabbitMQ.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\bin\Debug\netcoreapp3.1\Rpk_back.RabbitMQ.pdb
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+D:\Repozytoria\Hackaton_RPK\Backend\RPK_Backend\Rpk_back.WebAPI\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll

@@ -5,6 +5,7 @@ using AutoMapper;
 using Rpk_back.Application.Interfaces;
 using Rpk_back.Domain.Dtos;
 using Rpk_back.Domain.Enums;
+using Rpk_back.Domain.Models;
 
 namespace Rpk_back.Application.Service
 {
@@ -27,7 +28,6 @@ namespace Rpk_back.Application.Service
         public async Task<IEnumerable<SensorReadDto>> GetGroupByIdAndTime(Guid groupId, DateTime startTime, DateTime endTime)
         {
             return _mapper.Map<IEnumerable<SensorReadDto>>(await _repository.GetByIdGroupAndTime(groupId, startTime, endTime));
-
         }
 
         public async Task<IEnumerable<SensorReadDto>> GetByLocalizationAndTIme(SensorLocalizationEnum localization, DateTime startTime, DateTime endTime)
@@ -38,6 +38,11 @@ namespace Rpk_back.Application.Service
         public async Task<IEnumerable<SensorReadDto>> GetByTypeAndTIme(SensorTypeEnum sensorType, DateTime startTime, DateTime endTime)
         {
             return _mapper.Map<IEnumerable<SensorReadDto>>(await _repository.GetByTypeAndTime(sensorType, startTime, endTime));
+        }
+
+        public async Task AddSensor(Sensor sensor)
+        {
+            await _repository.CreateSensor(sensor);
         }
     }
 }

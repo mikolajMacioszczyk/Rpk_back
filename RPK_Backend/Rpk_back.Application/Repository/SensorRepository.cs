@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Rpk_back.Application.Db;
 using Rpk_back.Application.Interfaces;
+using Rpk_back.Domain.Dtos;
 using Rpk_back.Domain.Enums;
 using Rpk_back.Domain.Models;
 

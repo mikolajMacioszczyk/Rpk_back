@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Rpk_back.Application\Rpk_back.Application.csproj" />
     <ProjectReference Include="..\Rpk_back.Domain\Rpk_back.Domain.csproj" />
+    <ProjectReference Include="..\Rpk_back.RabbitMQ\Rpk_back.RabbitMQ.csproj" />
   </ItemGroup>
 
 

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Rpk_back.Domain.Dtos;
 using Rpk_back.Domain.Enums;
 
-namespace Rpk_back.Application.Service.Interface
+namespace Rpk_back.Application.Interfaces
 {
     public interface ISensorService
     {

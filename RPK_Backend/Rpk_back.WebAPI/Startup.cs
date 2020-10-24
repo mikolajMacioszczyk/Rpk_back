@@ -29,11 +29,16 @@ namespace Rpk_back.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+<<<<<<< HEAD
+            services.AddMemoryCache();
+            services.AddAutoMapper(typeof(Startup));
+=======
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new SensorConfiguration());
             });
             services.AddSingleton(mapperConfig.CreateMapper());
+>>>>>>> master
 
             services.AddDbContext<Context>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("Rpk_back.WebAPI")));

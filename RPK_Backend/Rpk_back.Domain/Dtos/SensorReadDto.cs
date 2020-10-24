@@ -6,6 +6,7 @@ namespace Rpk_back.Domain.Dtos
     public class SensorReadDto
     {
         public Guid SensorId { get; set; }
+        public  string NodeId { get; set; }
         public DateTime MeasurementTime { get; set; }
         public float SensorValue { get; set; }
         public string Localization { get; set; }
